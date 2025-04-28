@@ -17,8 +17,8 @@ main_bp = Blueprint("main", __name__)
 @main_bp.route('/', methods=['GET'])
 @login_required
 def index():
-    print('/')
     return render_template('index.html')
+
 
 #  API - список задач
 #
@@ -49,15 +49,14 @@ ANSWER: {p.answer}
             s = f.read()
     return s
 
-#  Форма додавання задачі
+#  Запит на форму додавання задачі
 #
-@main_bp.route('/add_prob/<scene>', methods=['GET'])
-@main_bp.route('/add_prob', defaults={'scene': None}, methods=['POST'])
+@main_bp.route('/add_prob/<scene>', methods=['GET', 'POST'])
 @login_required
 def add_prob(scene):
     if request.method == 'GET':
         scene = unquote(scene) if scene else None
-        return render_template('prob.html', init=scene) 
+        return render_template('prob.html',  header="Додавання задачі", init=scene) 
        
     elif request.method == 'POST':
         problem = Problem()
@@ -73,7 +72,7 @@ def add_prob(scene):
             db.commit()
         return redirect(url_for('main.index'))        
 
-#  Форма редагування задачі
+#  Запит на форму редагування задачі
 #
 @main_bp.route('/edit_prob/<title>', methods=['GET','POST'])
 @login_required
@@ -81,23 +80,26 @@ def edit_prob(title):
     if request.method == 'GET':
         title = unquote(title) if title else None
         with SessionLocal() as db:
-            problem = db.query(Problem).all()[0]
-
-        return render_template('prob.html', 
+            problems = db.query(Problem).filter(Problem.title == title).all()
+        if len(problems) == 0:
+            return "Select a problem."   
+        
+        problem = problems[0]
+        return render_template('prob.html', header="Редагування задачі (назву змінювати марно)",
             title=problem.title, cond=problem.cond, init=problem.init, answer=problem.answer)
      
     elif request.method == 'POST':
         with SessionLocal() as db:
             title = unquote(title) if title else None
-            problem = db.query(Problem).all()[0]
-            problem.title = request.form.get('title')
+            problem = db.query(Problem).filter(Problem.title == title).all()[0]
+
             problem.cond = request.form.get('cond')
             problem.init = request.form.get('init')
             problem.answer = request.form.get('answer')
             db.commit()
         return redirect(url_for('main.index'))        
 
-#  Форма видалення задачі
+#  Запит на форму видалення задачі
 #
 @main_bp.route('/del_prob/<title>', methods=['GET','POST'])
 @login_required
@@ -105,9 +107,12 @@ def del_prob(title):
     if request.method == 'GET':
         title = unquote(title) if title else None
         with SessionLocal() as db:
-            problem = db.query(Problem).all()[0]
-
-        return render_template('prob.html', 
+            problems = db.query(Problem).filter(Problem.title == title).all()
+        if len(problems) == 0:
+            return "Select a problem."   
+        
+        problem = problems[0]
+        return render_template('prob.html', header="Видалення задачі",
             title=problem.title, cond=problem.cond, init=problem.init, answer=problem.answer)
      
     elif request.method == 'POST':
