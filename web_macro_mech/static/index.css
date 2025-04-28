@@ -1,0 +1,165 @@
+body {
+    background-color: darkgrey;
+}
+
+:root {
+    --canvas-width: 800px;
+    --canvas-height: 600px;
+}
+
+/* ---------------------- top panel ---------------------- */
+.panel {
+    border: solid gray 1px; 
+    padding: 5px;  
+    width: var(--canvas-width);
+    margin-bottom: 4px;
+    background-color:lightcyan;
+    position: relative
+}
+
+input[type=range]
+{
+    width: 80px;
+    height: 14px;
+    display: inline;
+    margin: 4px 0px 0px 4px;
+}
+
+input[type=range]+label
+{
+    width: 64px;
+}
+
+.panel-button {
+    border: solid gray 1px; 
+    width: 40px;
+    margin-left: 8px;
+    font-weight: 700;
+    background-color: lightblue;
+}
+
+#modeButton {
+    background-image: image('./assets/icons/play-fill.svg');
+    background-color: rgb(0, 160, 0)
+}
+
+#createModeButton, #traceModeButton {
+    color: blue;   
+    border: blue solid 2px;
+    font-weight: 600; 
+    margin-left:    8px;
+    height: 36px; 
+}
+#createModeButton {
+    width: 60px;
+}
+#traceModeButton {
+    width: 40px;
+}
+
+#sceneSelect {
+    margin-left: 8px;
+    width: 180px; 
+}
+
+#mousePosSpan, #infoSpan  {
+    float: right;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#mousePosSpan  {
+    color: blue;
+}
+
+/* ----------------- Canvas Containeer -------------------------- */
+
+.canvas-cont {
+    position: relative;
+    width: var(--canvas-width);
+    height: var(--canvas-height);
+    background-color: white;
+}
+.canvas-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* -----------------  Board Styles -------------------------- */
+
+#ballBoard, #lineBoard, #problemBoard {
+    border: solid 1px;
+    border-color: rgb(117 190 218 / 70%);
+    font-family: monospace;
+    font-weight: 800;
+    color: gray;
+    padding: 5px;
+    background-color: rgb(117 190 218 / 20%);  
+    display: none; 
+    z-index: 3;
+    left: auto;  
+    right: 0;      
+}
+#problemBoard {
+    background-color: rgba(241, 241, 10, 0.1);
+    width: 500px;
+    left: 0;
+}
+
+#answerText {
+    width: 100px; 
+    background-color: rgba(255,255,255, 0);
+}
+
+#canvas {
+    z-index: 2;
+}
+#canvas2 {
+    z-index: 1;
+}
+
+
+.board-text {
+    width: 70px;
+    text-align: right;
+    margin-bottom: 3px;
+    background-color: rgb(117 190 218 / 0%); 
+    border-color: rgb(117 190 218 / 60%);
+}
+
+.board-button {
+    width: 70px;
+    background-color: rgb(0 0 0 / 10%);
+    border-color: rgb(117 190 218 / 60%); 
+    color: gray;
+}
+
+.board-label {
+    width: 55px;
+    display:inline-block;
+    text-align: right;
+    margin-right: 4px;
+    color: gray
+}
+
+/* <!------------------ bottom panel ----------------> */
+.bottom-panel {
+   margin-top: 4px;
+   width: var(--canvas-width);
+} 
+#savedSceneText
+{
+    width: 720px;
+    height: 30px;
+    background-color: lightcyan;
+}
+
+scene-textarea {
+    width: 720px;
+    height: 100px;
+    margin-top: 4px;
+}
+.scene-btn {
+    vertical-align: top;
+}

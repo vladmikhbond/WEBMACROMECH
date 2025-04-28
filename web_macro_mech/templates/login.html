@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Вхід</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, button {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .message {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Вхід</h2>
+    <form method="POST" action="/login">
+        <input type="text" name="username" placeholder="Ім'я користувача" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit">Увійти</button>
+    </form>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+TODO
+перенести зміни з ControllerStore.js  (68-73)
+
+
+
+
+------------------
+Трансфер з mavromechanics до webmacromech
+---
+1. Папку static перенести до папки /web_macro_mech
+
+2. index.html скопіювати в /web_macro_mech/templates/index.html
+
+ 
+
+БД програми
+---
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	username VARCHAR(150) NOT NULL, 
+	password_hash VARCHAR(128) NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (username)
+)
+
+CREATE TABLE "problems" (
+	"id"	INTEGER NOT NULL,
+	"title"	VARCHAR(150) NOT NULL UNIQUE,
+	"cond"	TEXT NOT NULL,
+	"init"	TEXT NOT NULL,
+	"answer"	TEXT NOT NULL,
+	"isOpen"	BOOLEAN NOT NULL,
+	"username"	VARCHAR(150) NOT NULL,
+	PRIMARY KEY("id"),
+	FOREIGN KEY("username") REFERENCES "users"("username")
+)
+
+
+Функції програми
+---
+№0 Показується адмін панель
+	- К натискає кнопку adminButton і показується або ховається адмін панель
+	- якщо панель показується, з бази завантажуються всі задачі даного користувача
+	- якщо панель ховається, з бази завантажуються всі відкриті задачі
+	
+
+№1 Користувач (К) додає задачу в базу
+    - К на адмінпанелі натискає кнопку "+" і надсилає запит GET \prob з json поточної сцени в параметрі scene 
+	- відкривається форма додавання задачи з заповненим полем сцени
+	- К заповнює інші поля форми (поле title - має бути унікальним) і натискає OK
+	- цим надсилається запит POST \prob із формою 
+	- створюється нова задача і додається в базу 
+
+№2 К редагує обрану задачу
+
+№3 К отримує всі відкриті задачі
+
