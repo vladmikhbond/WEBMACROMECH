@@ -49,6 +49,19 @@ ANSWER: {p.answer}
             s = f.read()
     return s
 
+
+#  Запит на головну адмін форму 
+#
+@main_bp.route('/admin', methods=['GET'])
+@login_required
+def admin():
+    with SessionLocal() as db:
+        problems = db.query(Problem).filter(Problem.username == current_user.username).all()
+        return render_template('admin.html', problems=problems)
+
+        
+
+
 #  Запит на форму додавання задачі
 #
 @main_bp.route('/add_prob/<scene>', methods=['GET', 'POST'])

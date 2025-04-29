@@ -1,5 +1,5 @@
 TODO
-перенести зміни з ControllerStore.js  (68-73)
+перенести зміни з ControllerStore.js  (40-48)
 відкривання задач
 answer
 інструкція по пр
@@ -7,7 +7,7 @@ answer
 
 
 ------------------
-Трансфер з mavromechanics до webmacromech
+Трансфер з macromechanics до webmacromech
 ---
 1. Папку static перенести до папки /web_macro_mech
 
