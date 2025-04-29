@@ -27,14 +27,14 @@
     </style>
 </head>
 <body>
-    <h2>{{header}}</h2>
+    <h2>Редагування Задачі "{{title}}"</h2>
     <form method="POST">
-        <input type="text" name="title" placeholder="Назва"value="{{title}}"  required>
         <input type="text" name="cond" placeholder="Умова"value="{{cond}}"  required>
         <input type="text" name="init" value="{{init}}" required>
         <input type="text" name="answer" placeholder="Відповідь"value="{{answer}}"  required>
+        <input type="text" name="isOpen" placeholder="Відкритість"value="{{isOpen}}"  required>
         
-        <button type="submit">Готово</button>
+        <button type="submit">Зберегти</button>
     </form>
 
     {% if message %}

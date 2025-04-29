@@ -56,7 +56,7 @@ ANSWER: {p.answer}
 def add_prob(scene):
     if request.method == 'GET':
         scene = unquote(scene) if scene else None
-        return render_template('prob.html',  header="Додавання задачі", init=scene) 
+        return render_template('add_prob.html', init=scene) 
        
     elif request.method == 'POST':
         problem = Problem()
@@ -85,8 +85,9 @@ def edit_prob(title):
             return "Select a problem."   
         
         problem = problems[0]
-        return render_template('prob.html', header="Редагування задачі (назву змінювати марно)",
-            title=problem.title, cond=problem.cond, init=problem.init, answer=problem.answer)
+        return render_template('edit_prob.html',
+            title=problem.title, cond=problem.cond, init=problem.init, 
+            answer=problem.answer, isOpen=problem.isOpen)
      
     elif request.method == 'POST':
         with SessionLocal() as db:
@@ -112,7 +113,7 @@ def del_prob(title):
             return "Select a problem."   
         
         problem = problems[0]
-        return render_template('prob.html', header="Видалення задачі",
+        return render_template('del_prob.html', header="",
             title=problem.title, cond=problem.cond, init=problem.init, answer=problem.answer)
      
     elif request.method == 'POST':
