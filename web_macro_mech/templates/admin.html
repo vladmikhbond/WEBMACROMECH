@@ -14,20 +14,26 @@
 <body>
     <div class="container">
         <h1 class="mt-4">Задачі користувача <i>{{current_user.username}}</i></h1>
+        <div>
+            <a href="{{ url_for('main.add_prob') }}" class="btn btn-primary">Add New Problem</a>
+        </div>
         <table class="table table-striped mt-3">
             <thead>
                 <tr>
-
                     <th>Title</th>
-                    <th>Cond</th>                    
+                    <th>Cond</th>
+                    <th>open</th>  
+                    <th>del</th>                    
                 </tr>
             </thead>
             <tbody>
                 {% for problem in problems %}
+                {% set color = 'red' if problem.isOpen else 'black'  %}
                 <tr>
-                    <td>{{ problem.title }}</td>
+                    <td><a href="{{ url_for('main.edit_prob', id=problem.id ) }}">{{ problem.title }}</a></td>
                     <td>{{ problem.cond }}</td>
-                    
+                    <td style="color: {{ color }}">No</td>
+                    <td><a href="{{ url_for('main.del_prob', id=problem.id ) }}">del</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
