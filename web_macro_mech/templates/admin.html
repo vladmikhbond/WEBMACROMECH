@@ -22,8 +22,9 @@
                 <tr>
                     <th>Title</th>
                     <th>Cond</th>
-                    <th>open</th>  
-                    <th>del</th>                    
+                    <th>Open</th>  
+                    <th>Edit</th>  
+                    <th>Del</th>                    
                 </tr>
             </thead>
             <tbody>
@@ -31,9 +32,10 @@
                 {% set color = 'green' if problem.isOpen else 'black'  %}
                 {% set yesNo = 'Yes' if problem.isOpen else 'No'  %}
                 <tr>
-                    <td><a href="{{ url_for('main.edit_prob', id=problem.id ) }}">{{ problem.title }}</a></td>
+                    <td>{{ problem.title }}</td>
                     <td>{{ problem.cond }}</td>
                     <td style="color: {{ color }}">{{yesNo}}</td>
+                    <td><a href="{{ url_for('main.edit_prob', id=problem.id ) }}">edit</a></td>
                     <td><a href="{{ url_for('main.del_prob', id=problem.id ) }}">del</a></td>
                 </tr>
                 {% endfor %}
