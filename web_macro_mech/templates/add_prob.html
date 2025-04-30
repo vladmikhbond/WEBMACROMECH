@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Problem</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 400px;
-            margin: 50px auto;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        input, button {
-            margin-bottom: 15px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        .message {
-            color: green;
-        }
-        .error {
-            color: red;
-        }
-    </style>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block title %} AddProb {% endblock %}
+
+{% block content %}
     <h2>Додавання Задачі</h2>
     <form method="POST" >
         <input type="text" name="title" placeholder="Назва" value="{{title}}" required>
@@ -36,12 +12,4 @@
         
         <button type="submit">Додати</button>
     </form>
-
-    {% if message %}
-        <p class="message">{{ message }}</p>
-    {% endif %}
-    {% if error %}
-        <p class="error">{{ error }}</p>
-    {% endif %}
-</body>
-</html>
+{% endblock %}
