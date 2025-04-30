@@ -34,7 +34,7 @@
                     <td>{{ problem.cond }}</td>
                     {% set color = 'green' if problem.isOpen else 'black'  %}
                     {% set yesNo = 'Yes' if problem.isOpen else 'No'  %}
-                    <!-- <td style="color: {{ color }}">{{yesNo}}</td> -->
+                    
 
                     <td>
                         <a href="{{ url_for('main.switch', id=problem.id ) }}"
