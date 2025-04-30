@@ -60,13 +60,29 @@ def admin():
         return render_template('admin.html', problems=problems)
 
 
+# Відкриття-закриття задач з головної форми
+#
+@main_bp.route('/switch/<id>', methods=['GET'])
+@login_required
+def switch(id):
+    with SessionLocal() as db:
+        problem = db.get(Problem, id) 
+        problem.isOpen = not problem.isOpen
+        db.commit()    
+        problems = db.query(Problem).filter(Problem.username == current_user.username).all()
+    return render_template('admin.html', problems=problems)
+
+
+
+
 #  Запит на форму додавання задачі
 #
 @main_bp.route('/add_prob', methods=['GET', 'POST'])
 @login_required
 def add_prob():
     if request.method == 'GET':
-        return render_template('add_prob.html')        
+        return render_template('add_prob.html')
+         
     elif request.method == 'POST':
         problem = Problem()
         problem.title = request.form.get('title')
