@@ -29,10 +29,10 @@
 <body>
     <h2>Редагування Задачі "{{problem.title}}"</h2>
     <form method="POST">
-        <input type="text" name="cond" placeholder="Умова"value="{{problem.cond}}"  required>
-        <input type="text" name="init" value="{{problem.init}}" required>
-        <input type="text" name="answer" placeholder="Відповідь"value="{{problem.answer}}"  required>
-        <input type="text" name="isOpen" placeholder="Відкритість"value="{{problem.isOpen}}"  required>
+        <input type="text" name="cond" title="Умова" value="{{problem.cond}}"  required>
+        <input type="text" name="init" title="Сцена" value="{{problem.init}}" required>
+        <input type="text" name="answer" title="Відповідь"value="{{problem.answer}}"  required>
+        <input type="text" name="isOpen" title="Відкритість"value="{{problem.isOpen}}"  required>
         
         <button type="submit">Зберегти</button>
     </form>
