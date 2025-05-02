@@ -8,7 +8,7 @@ from .models import Base, User
 
 
 bcrypt = Bcrypt()
-engine = create_engine("sqlite:///webmacromech.db", echo=False)
+engine = create_engine("sqlite:///data/webmacromech.db", echo=False)
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
 login_manager = LoginManager()

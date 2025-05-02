@@ -36,17 +36,16 @@ export class ControllerStore {
         }
     }
     addEventListeners() {
-
         // open admin panel
         //
-        doc.adminButton.addEventListener("click", (e) => {  
+        doc.adminButton.addEventListener("click", (e) => {
             if (e.ctrlKey) {
                 window.open('/admin'); // Open in the same window
-            } else {
+            }
+            else {
                 window.location.href = '/admin'; // Open in a new window
-            }      
+            }
         });
-
         doc.saveSceneButton.addEventListener("click", () => {
             doc.savedSceneArea.value = ControllerStore.sceneToJson(this.box);
         });
@@ -119,8 +118,9 @@ export class ControllerStore {
         glo.K = o.K;
     }
     checkAnswer() {
-        let id = +doc.sceneSelect.value;
-        let problem = this.problems[id];
+        const id = +doc.sceneSelect.value;
+        const problem = this.problems[id];
+        const balls = this.controller.box.balls;
         let testOk = false;
         // 
         if (problem.isAnswerNumber) {
@@ -129,17 +129,24 @@ export class ControllerStore {
             testOk = doc.answerText.value == problem.answer || epsilon < MAX_ERROR;
         }
         else {
-            const testFunction = new Function('t, b, b1', `
+            const testFunction = new Function('t, b, b1, canvas_height', `
                 let x = Math.round(b.x);
-                let y = Math.round(600 - b.y);
+                let y = Math.round(canvas_height - b.y);
                 let vx = +b.vx.toFixed(2);
-                let vy = -b.vy.toFixed(2); 
+                let vy = -b.vy.toFixed(2);
                 let m = b.m;
+                if (b1) {                
+                    let x1 = Math.round(b1.x);                
+                    let y1 = Math.round(canvas_height - b1.y);                
+                    let vx1 = b1.vx.toFixed(2);                
+                    let vy1 = -b1.vy.toFixed(2);                
+                    let m1 = b1.m;
+                }
                 return ${problem.answer}
             `);
             let sceneJson = ControllerStore.sceneToJson(this.controller.box);
             for (let t = 0; t <= 1000; t++) {
-                if (testFunction(t, this.controller.box.balls[0], this.controller.box.balls[1])) {
+                if (testFunction(t, balls[0], balls[1], doc.canvas.height)) {
                     testOk = true;
                     break;
                 }

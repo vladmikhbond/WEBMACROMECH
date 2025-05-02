@@ -27,7 +27,7 @@ class Problem(Base):
     answer: Mapped[str] = mapped_column(Text, nullable=False)
     isOpen: Mapped[bool] = mapped_column(Boolean, default=True)
     #
-    username: Mapped[int] = mapped_column(ForeignKey("users.username"))
+    username: Mapped[str] = mapped_column(ForeignKey("users.username"))
     user: Mapped["User"] = relationship(back_populates="problems")
     
 

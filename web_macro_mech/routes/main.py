@@ -1,10 +1,10 @@
 
 from flask import Blueprint, render_template, request, redirect, url_for
-from flask_login import login_user, login_required, logout_user, current_user
+from flask_login import login_required, current_user
 
-from sqlalchemy import select
-from sqlalchemy.orm import Session
-from urllib.parse import unquote
+# from sqlalchemy import select
+# from sqlalchemy.orm import Session
+# from urllib.parse import unquote
 
 
 from ..models import Problem, User
@@ -25,7 +25,6 @@ def index():
 @main_bp.route('/opened_probs', methods=['GET'])
 @main_bp.route('/my_probs', methods=['GET'])
 def probs():
-
     s = ''
     with SessionLocal() as db:
         if request.path == '/opened_probs': 
