@@ -88,7 +88,7 @@ export class ControllerStore {
             balls: box.balls.map(b => { return { x: b.x, y: b.y, vx: b.vx, vy: b.vy, m: b.m, radius: b.radius, color: b.color, }; }),
             lines: box.lines,
             links: box.links.map(l => [l.b1.x, l.b1.y, l.b2.x, l.b2.y]),
-            g: glo.g, W: glo.W, Wl: glo.Wk, Wf: glo.Wf, K: glo.K,
+            g: glo.g, W: glo.W, Wk: glo.Wk, Wf: glo.Wf, K: glo.K,
         };
         let json = JSON.stringify(o);
         box.balls.forEach(b => b.box = box);
@@ -113,7 +113,7 @@ export class ControllerStore {
         // restore globals
         glo.g = o.g;
         glo.W = o.W;
-        glo.Wk = o.Wl;
+        glo.Wk = o.Wk;
         glo.Wf = o.Wf;
         glo.K = o.K;
     }
@@ -121,6 +121,7 @@ export class ControllerStore {
         const id = +doc.sceneSelect.value;
         const problem = this.problems[id];
         const balls = this.controller.box.balls;
+        const answer = problem.answer;
         let testOk = false;
         // 
         if (problem.isAnswerNumber) {
@@ -142,7 +143,7 @@ export class ControllerStore {
                     let vy1 = -b1.vy.toFixed(2);                
                     let m1 = b1.m;
                 }
-                return ${problem.answer}
+                return ${answer}
             `);
             let sceneJson = ControllerStore.sceneToJson(this.controller.box);
             for (let t = 0; t <= 1000; t++) {

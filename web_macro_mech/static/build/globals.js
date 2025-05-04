@@ -13,7 +13,7 @@ export let glo = {
 };
 export const doc = {
     canvas: document.getElementById("canvas"),
-    canvas2: document.getElementById("canvas2"),    
+    canvas2: document.getElementById("canvas2"),
     mousePosSpan: document.getElementById("mousePosSpan"),
     infoSpan: document.getElementById("infoSpan"),
     createModeButton: document.getElementById("createModeButton"),
