@@ -40,6 +40,9 @@ export class Box {
         }
         return [eKin, ePot, eDef];
     }
+    objectUnderPoint(p) {
+        return this.ballUnderPoint(p) || this.lineUnderPoint(p) || this.linkUnderPoint(p);
+    }
     //#region  Ball Suit
     addBall(b) {
         b.box = this;

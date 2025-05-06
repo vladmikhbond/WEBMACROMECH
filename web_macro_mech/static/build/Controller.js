@@ -29,7 +29,7 @@ export class Controller {
         doc.graviRange.value = glo.g.toString();
         doc.waistRange.value = glo.W.toString();
         doc.waistLinkRange.value = glo.Wk.toString();
-        doc.waistFrictRange.value = glo.Wf.toString();
+        doc.waistFrictRange.value = glo.Vis.toString();
         doc.rigidRange.value = Math.log2(glo.K).toString();
         doc.graviRange.dispatchEvent(new Event("change"));
         doc.waistRange.dispatchEvent(new Event("change"));
@@ -249,8 +249,8 @@ export class Controller {
             doc.waistLinkValue.innerHTML = "W<sub>k</sub>=" + doc.waistLinkRange.value;
         });
         doc.waistFrictRange.addEventListener("change", () => {
-            glo.Wf = +doc.waistFrictRange.value;
-            doc.waistFrictValue.innerHTML = "W<sub>f</sub>=" + doc.waistFrictRange.value;
+            glo.Vis = +doc.waistFrictRange.value;
+            doc.waistFrictValue.innerHTML = "V=" + doc.waistFrictRange.value;
         });
         doc.rigidRange.addEventListener("change", () => {
             glo.K = 2 ** +doc.rigidRange.value;
@@ -375,18 +375,23 @@ export class Controller {
             if (ballVelo) {
                 return;
             }
-            ball = this.box.ballUnderPoint(p0);
+            ///// Перемикання //////
+            let obj = this.box.objectUnderPoint(p0);
+            this.selected = obj;
+            if (obj instanceof Ball) {
+                ball = obj;
+            }
+            else if (obj instanceof Line) {
+                this.createMode = CreateMode.Line;
+            }
+            else if (obj instanceof Link) {
+                this.createMode = CreateMode.Link;
+            }
+            ////////////////////////
             if (ball) {
                 // в p0 смещение курсора от центра шара
                 p0 = { x: ball.x - p0.x, y: ball.y - p0.y };
-                this.selected = ball;
             }
-            else {
-                if (this.selected instanceof Ball) {
-                    this.selected = null;
-                }
-            }
-            // this.view.drawAll();
         };
         doc.canvas.onmousemove = (e) => {
             let p = this.cursorPoint(e);
@@ -430,16 +435,20 @@ export class Controller {
         let p0 = null;
         doc.canvas.onmousedown = (e) => {
             p0 = this.cursorPoint(e);
-            let line = this.box.lineUnderPoint(p0);
-            if (line) {
-                this.selected = line;
+            let line = null;
+            ///// Перемикання //////
+            let obj = this.box.objectUnderPoint(p0);
+            this.selected = obj;
+            if (obj instanceof Ball) {
+                this.createMode = CreateMode.Ball;
             }
-            else {
-                if (this.selected instanceof Line) {
-                    this.selected = null;
-                }
+            else if (obj instanceof Line) {
+                line = obj;
             }
-            // this.view.drawAll();
+            else if (obj instanceof Link) {
+                this.createMode = CreateMode.Link;
+            }
+            ////////////////////////   
         };
         doc.canvas.onmousemove = (e) => {
             let p = this.cursorPoint(e);
@@ -468,15 +477,20 @@ export class Controller {
             let p = this.cursorPoint(e);
             let ball = this.box.ballUnderPoint(p);
             if (ball === null || ball === lastClickedBall) {
-                let link = this.box.linkUnderPoint(p);
-                if (link) {
-                    this.selected = link;
+                let link = null;
+                ///// Перемикання //////
+                let obj = this.box.objectUnderPoint(p);
+                this.selected = obj;
+                if (obj instanceof Ball) {
+                    this.createMode = CreateMode.Ball;
                 }
-                else {
-                    if (this.selected instanceof Link) {
-                        this.selected = null;
-                    }
+                else if (obj instanceof Line) {
+                    this.createMode = CreateMode.Line;
                 }
+                else if (obj instanceof Link) {
+                    link = obj;
+                }
+                ////////////////////////
                 return;
             }
             if (lastClickedBall === null) {
