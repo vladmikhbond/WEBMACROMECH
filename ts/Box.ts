@@ -294,7 +294,8 @@ export class Box {
                 let k = d / (ball.radius - delta);
                 let x = (p.x - ball.x) / k + ball.x;
                 let y = (p.y - ball.y) / k + ball.y;
-                ball.dots.push({x, y, from: link});
+                // ball.dots.push({x, y, from: link});
+                ball.addDot(x, y, link);
 
                 // точки дотику на кулях гантелі
                 // u - единичный векор перпедикуляра к связи

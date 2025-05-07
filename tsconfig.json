@@ -3,7 +3,7 @@
 
     "target": "es2020",   
     "module": "es2020",   
-    "rootDir": "./src",  
+    "rootDir": "ts",  
     "outDir": "./web_macro_mech/static/build",          
     "sourceMap": true, 
     "esModuleInterop": true,
@@ -14,7 +14,7 @@
 
   },
   "include": [
-    "src/**/*.ts"
+    "ts/**/*.ts"
   ]
 
 }

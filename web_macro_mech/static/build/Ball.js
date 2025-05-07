@@ -1,11 +1,14 @@
 import { glo } from "./globals.js";
 import { Geometry as G, Point } from "./Geometry.js";
 import { Link } from "./Link.js";
-import { Line } from "./Line.js";
 export class Dot extends Point {
     constructor(x, y, from) {
         super(x, y);
         this.from = from;
+    }
+    moveTo(x, y) {
+        this.x = x;
+        this.y = y;
     }
 }
 // Ball - куля.
@@ -16,7 +19,6 @@ export class Ball {
         this.ax = 0;
         this.ay = 0;
         this.dots = [];
-        this.dotShadows = [];
         this.x = x;
         this.y = y;
         this.radius = r;
@@ -48,18 +50,23 @@ export class Ball {
     }
     addDot(x, y, from) {
         //  
-        if (!this.dotShadows.find(d => d.from === from)) {
-            if (from instanceof Ball)
-                glo.strikeCounter += 0.5;
-            if (from instanceof Line)
-                glo.strikeCounter += 1;
-        }
+        // if (!this.dotShadows.find(d => d.from === from)) {
+        //     if (from instanceof Ball)
+        //         glo.strikeCounter += 0.5;
+        //     if (from instanceof Line)
+        //         glo.strikeCounter += 1;
+        // }
         //
-        let dot = new Dot(x, y, from);
-        this.dots.push(dot);
+        let dot = this.dots.find(d => d.from === from);
+        if (dot) {
+            dot.moveTo(x, y);
+        }
+        else {
+            dot = new Dot(x, y, from);
+            this.dots.push(dot);
+        }
     }
     clearDots() {
-        this.dotShadows = this.dots;
         this.dots = [];
     }
     // Переміщення кулі. 

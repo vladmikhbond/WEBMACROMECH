@@ -10,8 +10,14 @@ export class Dot extends Point {
 
     constructor (x: number, y: number, from: Ball | Line | Link) {
         super(x, y);
-        this.from = from;
-    }     
+        this.from = from;    
+    }
+    
+    moveTo(x: number, y: number) {       
+        this.x = x;
+        this.y = y;
+    }
+
 }
 
 // Ball - куля.
@@ -24,7 +30,6 @@ export class Ball
     ay = 0;
     
     dots: Dot[] = [];
-    dotShadows: Dot[] = [];
     
     constructor(x:number, y:number, r:number, c:string, vx:number, vy:number, m=0) {
         this.x = x;
@@ -60,20 +65,25 @@ export class Ball
                         
     addDot(x: number, y: number, from: Ball | Line | Link ) {
         //  
-        if (!this.dotShadows.find(d => d.from === from)) {
-            if (from instanceof Ball)
-                glo.strikeCounter += 0.5;
-            if (from instanceof Line)
-                glo.strikeCounter += 1;
-        }
+        // if (!this.dotShadows.find(d => d.from === from)) {
+        //     if (from instanceof Ball)
+        //         glo.strikeCounter += 0.5;
+        //     if (from instanceof Line)
+        //         glo.strikeCounter += 1;
+        // }
             
         //
-        let dot = new Dot(x, y, from);
-        this.dots.push(dot);
+        let dot: Dot | undefined = this.dots.find(d => d.from === from);
+
+        if (dot) {
+            dot.moveTo(x, y);
+        } else {
+            dot = new Dot(x, y, from);
+            this.dots.push(dot);
+        }
     }
 
     clearDots() {
-        this.dotShadows = this.dots;
         this.dots = [];
     }
 
