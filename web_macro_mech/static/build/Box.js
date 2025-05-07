@@ -240,11 +240,10 @@ export class Box {
                 let common = delta / link.len0;
                 let delta1 = len2 * common;
                 let delta2 = len1 * common;
-                // точка касания для шара
+                // точка дотику до кулі
                 let k = d / (ball.radius - delta);
                 let x = (p.x - ball.x) / k + ball.x;
                 let y = (p.y - ball.y) / k + ball.y;
-                // ball.dots.push({x, y, from: link});
                 ball.addDot(x, y, link);
                 // точки дотику на кулях гантелі
                 // u - единичный векор перпедикуляра к связи

@@ -12,12 +12,6 @@ export class Dot extends Point {
         super(x, y);
         this.from = from;    
     }
-    
-    moveTo(x: number, y: number) {       
-        this.x = x;
-        this.y = y;
-    }
-
 }
 
 // Ball - куля.
@@ -71,16 +65,9 @@ export class Ball
         //     if (from instanceof Line)
         //         glo.strikeCounter += 1;
         // }
-            
-        //
-        let dot: Dot | undefined = this.dots.find(d => d.from === from);
 
-        if (dot) {
-            dot.moveTo(x, y);
-        } else {
-            dot = new Dot(x, y, from);
-            this.dots.push(dot);
-        }
+        let dot = new Dot(x, y, from);
+        this.dots.push(dot);    
     }
 
     clearDots() {
@@ -96,9 +83,11 @@ export class Ball
         let ball = this;
         if (ball.color === "blue")
             return;
-        // складаємо прискорення від кожної точки дотику
+
+        // складаємо сили від кожної точки дотику
         for (let dot of ball.dots) {
-            let ballDotDistance = G.distance(ball, dot);
+             
+            let ballDotDistance = G.distance(ball, dot); 
             // деформація кулі
             let deform = ball.radius - ballDotDistance;
             // одиничний вектор напряму від точки дотику до центру кулі
@@ -109,8 +98,9 @@ export class Ball
             let scalarProduct = G.scalar(new Point(ball.vx, ball.vy), u);
             let k = scalarProduct > 0 ? w : 1; // у фазі зменшення деформації
             // let k = scalarProduct < 0 ? 1/w : 1;   // у фазі збільшення деформації         
-            // прискорення від точки дотику
-            let f = glo.K * w * k * deform;
+            // сила від точки дотику
+            let glo_K = dot.from instanceof Link ? glo.K * 2 : glo.K  // модуль пружності перемичок у двічі більший (?)
+            let f = glo_K * k * deform;
             fx += f * u.x;
             fy += f * u.y;
         }
