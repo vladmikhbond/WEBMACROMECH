@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+
+    "target": "es2020",   
+    "module": "es2020",   
+    "rootDir": "./src",  
+    "outDir": "./web_macro_mech/static/build",          
+    "sourceMap": true, 
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,  
+    "strict": true,     
+    "strictNullChecks": true, 
+    "skipLibCheck": true 
+
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+
+}
