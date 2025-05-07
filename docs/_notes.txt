@@ -11,14 +11,14 @@ https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Inline_math_mode
 
 
 TODO:
-
+pretty JSON for saved problrms
 
 
 
 
 
 ========================================================================
-Інструкція по розгортанню проекта
+Інструкція по ініціалізації проекта
 ---
 Встановити вірт середовище і в ньому пакети:
 
