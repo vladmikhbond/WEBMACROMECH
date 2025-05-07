@@ -49,7 +49,7 @@ export class ControllerStore
 
     addEventListeners() 
     {   
-        // open admin panel
+        // Перехід на сторінку управління задачами - /admin
         //
         doc.adminButton.addEventListener("click", (e) => {  
             if (e.ctrlKey) {
@@ -70,7 +70,10 @@ export class ControllerStore
             this.controller.mode = Mode.Stop;
         });
 
-        const loadProblemInitScene = () => {
+
+        // Завантажує сцену обраної користувачем задачі
+        //
+        const loadSceneOfSelectedProblem = () => {
             // 
             let idx = +doc.sceneSelect.value;
             if (idx == 0) {
@@ -88,14 +91,16 @@ export class ControllerStore
             doc.problemBoard.style.display = 'block'; 
             doc.problemBoard.style.backgroundColor = 'rgba(241, 241, 10, 0.1)';
             doc.answerText.style.display = problem.isAnswerNumber ? 'inline' : 'none';
-            doc.rangesDiv.style.display = problem.answer == '' ? 'block' : 'none';
+            // якщо відповідь задачі пуста або умова починається з зірочки, показує панель слайдерів
+            doc.rangesDiv.style.display = 
+               problem.answer == '' || problem.cond.slice(0, 1) == '*' ? 'block' : 'none';
             doc.ballBoard.style.display = 'none';
             doc.lineBoard.style.display = 'none';
         }
 
-        doc.sceneSelect.addEventListener("change", loadProblemInitScene);
+        doc.sceneSelect.addEventListener("change", loadSceneOfSelectedProblem);
 
-        doc.sceneSelect.addEventListener("click", loadProblemInitScene);
+        doc.sceneSelect.addEventListener("click", loadSceneOfSelectedProblem);
 
         doc.answerButton.addEventListener("click", (e) => {              
             this.checkAnswer();    

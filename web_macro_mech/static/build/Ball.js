@@ -35,8 +35,8 @@ export class Ball {
     get deformEnergy() {
         const b = this;
         let e = 0;
+        let c = new Point(b.x - b.vx / 2, b.y - b.vy / 2); // ще не зрозумів
         b.dots.forEach(dot => {
-            let c = new Point(b.x - b.vx, b.y - b.vy);
             let ballDotDistance = G.distance(c, dot);
             // деформація кулі
             let deform = b.radius - ballDotDistance;
