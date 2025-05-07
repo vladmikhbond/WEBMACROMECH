@@ -40,19 +40,19 @@ export class Ball
         let b = this;
         return b.m * (b.vx * b.vx + b.vy * b.vy) / 2;
     }
-    get potEnergy() {
+    get gravEnergy() {
         const b = this, h = b.box!.height - b.radius - b.y;   
         return b.m * glo.g * h;    
     }
-    get defEnergy() {
+    get deformEnergy() {
         const b = this;
         let e = 0;
+        let c = new Point(b.x - b.vx/2, b.y - b.vy/2);  // ще не зрозумів
         b.dots.forEach(dot => {
-            let c = new Point(b.x - b.vx/2, b.y - b.vy/2);  
             let ballDotDistance = G.distance(c, dot);
             // деформація кулі
             let deform = b.radius - ballDotDistance;            
-            e += glo.K * (deform)**2 / 2;
+            e += glo.K * deform**2 / 2;
         });
         return e;   
     }
@@ -85,8 +85,8 @@ export class Ball
             return;
 
         // складаємо сили від кожної точки дотику
-        for (let dot of ball.dots) {
-             
+        for (let dot of ball.dots) 
+        {    
             let ballDotDistance = G.distance(ball, dot); 
             // деформація кулі
             let deform = ball.radius - ballDotDistance;
@@ -98,17 +98,17 @@ export class Ball
             let scalarProduct = G.scalar(new Point(ball.vx, ball.vy), u);
             let k = scalarProduct > 0 ? w : 1; // у фазі зменшення деформації
             // let k = scalarProduct < 0 ? 1/w : 1;   // у фазі збільшення деформації         
+            
             // сила від точки дотику
-            let glo_K = dot.from instanceof Link ? glo.K * 2 : glo.K  // модуль пружності перемичок у двічі більший (?)
-            let f = glo_K * k * deform;
+            let f = glo.K * k * deform;
             fx += f * u.x;
             fy += f * u.y;
         }
-        // сила спротиву повітря
+        // сила спротиву повітря ~ vis * radius * velocity
         if (glo.Vis > 0) {
-            let k = ball.radius * glo.Vis;
-            fx -= ball.vx * k;
-            fy -= ball.vy * k;
+            let rv = ball.radius * glo.Vis;
+            fx -= ball.vx * rv;
+            fy -= ball.vy * rv;
         }
         // миттєве прискорення
         let ax = fx / ball.m;

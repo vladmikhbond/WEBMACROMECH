@@ -40,8 +40,8 @@ export class Box {
         let eKin = 0, ePot = 0, eDef = 0;
         for(let b of this.balls) {
             eKin += b.kinEnergy;
-            ePot += b.potEnergy;
-            eDef += b.defEnergy;
+            ePot += b.gravEnergy;
+            eDef += b.deformEnergy;
         }
         return [eKin, ePot, eDef];
     }
@@ -290,7 +290,7 @@ export class Box {
                 let common = delta / link.len0;
                 let delta1 = len2 * common;
                 let delta2 = len1 * common;
-                
+
                 // точка дотику до кулі
                 let k = d / (ball.radius - delta);
                 let x = (p.x - ball.x) / k + ball.x;
