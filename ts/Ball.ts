@@ -92,12 +92,12 @@ export class Ball
             let deform = ball.radius - ballDotDistance;
             // одиничний вектор напряму від точки дотику до центру кулі
             let u = G.unit(dot, ball, ballDotDistance);
-            // коєфіцієнт збереження енергії при дотику від лінку або від (кулі | лінії)
-            let w = dot.from instanceof Link ? glo.Wk : glo.W;
+            // коєфіцієнт втрат енергії при дотику від лінку або від (кулі | лінії)
+            let w = dot.from instanceof Link ? glo.U : glo.W;
             // втрата енергії при дотику 
             let scalarProduct = G.scalar(new Point(ball.vx, ball.vy), u);
-            let kw = scalarProduct > 0 ? w : 1; // у фазі зменшення деформації
-            // let kw = scalarProduct < 0 ? 1/w : 1;   // у фазі збільшення деформації         
+            let kw = scalarProduct > 0 ? 1 - w : 1; // у фазі зменшення деформації
+            // let kw = scalarProduct < 0 ? 1/(1 - w) : 1;   // у фазі збільшення деформації         
             
             // сила від точки дотику
             let f = glo.K * kw * deform;

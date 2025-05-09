@@ -28,7 +28,7 @@ export class Controller {
         this.view.drawAll();
         doc.graviRange.value = glo.g.toString();
         doc.waistRange.value = glo.W.toString();
-        doc.waistLinkRange.value = glo.Wk.toString();
+        doc.waistLinkRange.value = glo.U.toString();
         doc.waistFrictRange.value = glo.Vis.toString();
         doc.rigidRange.value = Math.log2(glo.K).toString();
         doc.graviRange.dispatchEvent(new Event("change"));
@@ -245,8 +245,8 @@ export class Controller {
             doc.waistValue.innerHTML = "W=" + doc.waistRange.value;
         });
         doc.waistLinkRange.addEventListener("change", () => {
-            glo.Wk = +doc.waistLinkRange.value;
-            doc.waistLinkValue.innerHTML = "W<sub>k</sub>=" + doc.waistLinkRange.value;
+            glo.U = +doc.waistLinkRange.value;
+            doc.waistLinkValue.innerHTML = "U=" + doc.waistLinkRange.value;
         });
         doc.waistFrictRange.addEventListener("change", () => {
             glo.Vis = +doc.waistFrictRange.value;
