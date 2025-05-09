@@ -43,15 +43,16 @@ export class View
             ctx.beginPath();
             let x = this.box.x + b.x, y = this.box.y + b.y;
             if (glo.showBallDeform && b.dots && b.dots.length > 0) {
-                let dot = b.dots[0];
+                
                 // show the deformation of the ball
-                let alpha = Math.atan2(dot.y - b.y, dot.x - b.x);
-                let kr = (G.distance(dot, b) / b.radius);    // ** 0.5; // зведення **0.5 наближає kr до 1 
+                // let dot = b.dots[0];                                // it is a deformation 
+                // let alpha = Math.atan2(dot.y - b.y, dot.x - b.x);   //
+                // let kr = (G.distance(dot, b) / b.radius);           //
                 ctx.save();
                 ctx.translate(x, y);
-                ctx.rotate(alpha);
-                ctx.scale(kr, 1/kr);
-                ctx.rotate(-alpha);
+                // ctx.rotate(alpha);                                  //
+                // ctx.scale(kr, 1/kr);                                //
+                // ctx.rotate(-alpha);                                 //
                 ctx.arc(0, 0, b.radius, 0, Math.PI * 2);
                 ctx.restore();        }
             else

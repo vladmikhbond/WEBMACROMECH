@@ -36,7 +36,7 @@ export class ControllerStore {
         }
     }
     addEventListeners() {
-        // open admin panel
+        // Перехід на сторінку управління задачами - /admin
         //
         doc.adminButton.addEventListener("click", (e) => {
             if (e.ctrlKey) {
@@ -55,7 +55,8 @@ export class ControllerStore {
             this.controller.resetUI();
             this.controller.mode = Mode.Stop;
         });
-        // Завантажує сцену обраної задачі
+        // Завантажує сцену обраної користувачем задачі
+        //
         const loadSceneOfSelectedProblem = () => {
             // 
             let idx = +doc.sceneSelect.value;
