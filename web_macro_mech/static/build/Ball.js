@@ -47,7 +47,8 @@ export class Ball {
         return e;
     }
     addDot(x, y, from) {
-        if (!this.dotShadows.find(d => d.from === from)) {
+        // Count strikes of the balls 
+        if (glo.doCounStrikes && !this.dotShadows.find(d => d.from === from)) {
             if (from instanceof Ball)
                 glo.strikeCounter += 0.5;
             if (from instanceof Line)

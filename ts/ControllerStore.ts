@@ -117,7 +117,7 @@ export class ControllerStore
             links: box.links.map(l => [l.b1.x, l.b1.y, l.b2.x, l.b2.y]),
             g: glo.g, W: glo.W, U: glo.U, Vis: glo.Vis, K: glo.K, 
         };
-        let json = JSON.stringify(o);
+        let json = JSON.stringify(o, null, 2); // 2 - кількість пробілів
         box.balls.forEach(b => b.box = box);  
         return json;  
     }

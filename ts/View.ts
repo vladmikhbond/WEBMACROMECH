@@ -118,7 +118,8 @@ export class View
         ctx.strokeRect(this.box.x, this.box.y, this.box.width, this.box.height);
 
         // draw links
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 4;
+        ctx.lineCap = "square" ;  //  "butt" | "round" | "square";
         ctx.strokeStyle = "gray";
         ctx.beginPath();
         for (let link of this.box.links) {
@@ -176,7 +177,8 @@ export class View
         }
 
         // draw lines
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 4;
+        ctx.lineCap = "round" ;  //  "butt" | "round" | "square";
         ctx.strokeStyle = "blue";
         ctx.beginPath();
         for (let line of this.box.lines) {
