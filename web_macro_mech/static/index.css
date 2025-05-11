@@ -7,6 +7,16 @@ body {
     --canvas-height: 600px;
 }
 
+.head {
+    color:aliceblue;
+    width: var(--canvas-width);
+}
+#adminButton {
+    float: right;
+    color: aliceblue;
+    border-color: aliceblue;
+    margin-right: 4px;
+}
 /* ---------------------- top panel ---------------------- */
 .panel {
     border: solid gray 1px; 
@@ -38,6 +48,14 @@ input[type=range]+label
     background-color: lightblue;
 }
 
+#createModeButton {
+    width: 60px;
+}
+
+#traceModeButton {
+    width: 40px;
+}
+
 #modeButton {
     background-image: image('./assets/icons/play-fill.svg');
     background-color: rgb(0, 160, 0)
@@ -50,12 +68,7 @@ input[type=range]+label
     margin-left:    8px;
     height: 36px; 
 }
-#createModeButton {
-    width: 60px;
-}
-#traceModeButton {
-    width: 40px;
-}
+
 
 #sceneSelect {
     margin-left: 8px;
