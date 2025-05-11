@@ -150,7 +150,7 @@ export class ControllerStore {
                 return ${answer}
             `);
             let sceneJson = ControllerStore.sceneToJson(this.controller.box);
-            for (let t = 0; t <= 1000; t++) {
+            for (let t = 0; t <= 1000000; t++) { // todo: 10000000
                 if (testFunction(t, balls[0], balls[1], doc.canvas.height)) {
                     testOk = true;
                     break;
@@ -165,4 +165,3 @@ export class ControllerStore {
             'rgba(241, 241, 10, 0.1)';
     }
 }
-//# sourceMappingURL=ControllerStore.js.map

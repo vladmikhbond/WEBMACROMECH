@@ -24,6 +24,7 @@ export class Ball
     ay = 0;
     
     dots: Dot[] = [];
+    dotShadows: Dot[] = [];
     
     constructor(x:number, y:number, r:number, c:string, vx:number, vy:number, m=0) {
         this.x = x;
@@ -57,20 +58,22 @@ export class Ball
         return e;   
     }
                         
-    addDot(x: number, y: number, from: Ball | Line | Link ) {
-        //  
-        // if (!this.dotShadows.find(d => d.from === from)) {
-        //     if (from instanceof Ball)
-        //         glo.strikeCounter += 0.5;
-        //     if (from instanceof Line)
-        //         glo.strikeCounter += 1;
-        // }
+    addDot(x: number, y: number, from: Ball | Line | Link ) 
+    {
+        // Count strikes of the balls 
+        if (glo.doCounStrikes && !this.dotShadows.find(d => d.from === from)) {
+            if (from instanceof Ball)
+                glo.strikeCounter += 0.5;
+            if (from instanceof Line)
+                glo.strikeCounter += 1;
+        }
 
         let dot = new Dot(x, y, from);
         this.dots.push(dot);    
     }
 
     clearDots() {
+        this.dotShadows = this.dots;
         this.dots = [];
     }
 

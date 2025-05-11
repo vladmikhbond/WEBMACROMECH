@@ -59,4 +59,3 @@ export const doc = {
     delProblemButton: document.getElementById("delProblemButton"),
     header: document.getElementById("header"), // 
 };
-//# sourceMappingURL=globals.js.map

@@ -9,4 +9,3 @@ export class Problem {
         return !isNaN(+this.answer);
     }
 }
-//# sourceMappingURL=Problem.js.map

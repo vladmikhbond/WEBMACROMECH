@@ -3,19 +3,17 @@ export let glo =
     W: 0.5,      // conservation of energу when two balls strikes ( 1 - no loss)
     U: 0.05,     // conservation of energу when link reacts ( 1 - no loss)
     Vis: 0,      // drag coeff   ( 0 - no drag)
-
-    K: 100,     // modulus of elasticity of a ball 
+    K: 100,      // modulus of elasticity of a ball     
+    g: 0.005,    // acceleration of gravity  
     
-    g: 0.005,  // acceleration of gravity  
-    
-    INTERVAL: 10,
-    chronos: 0,      // time in ticks (1 sec = 1000/INTERVAL ticks)
+    INTERVAL: 10,    // interval between two ticks 
+    chronos: 0,      // modell time in ticks (1 sec = 1000/INTERVAL ticks)
 
     showBallDeform: true,  // show the deformation of a ball
-    Kvelo: 100,      // for velocity drawing
-    Kg: 1000,        // for gravity range
+    Kvelo: 100,            // for velocity drawing
 
-    strikeCounter: 0,
+    doCounStrikes: false,  // checking if the ball strikes are counted
+    strikeCounter: 0,      // strikes counter
 }
 
 export const doc = 

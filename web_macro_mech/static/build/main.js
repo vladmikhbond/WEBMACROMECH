@@ -6,4 +6,3 @@ import { Controller } from "./Controller.js";
 let box = new Box(0, 0, doc.canvas.width, doc.canvas.height);
 let view = new View(box);
 let controller = new Controller(box, view);
-//# sourceMappingURL=main.js.map

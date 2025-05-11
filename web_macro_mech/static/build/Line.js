@@ -35,4 +35,3 @@ export class Line {
     get p1() { return { x: this.x1, y: this.y1 }; }
     get p2() { return { x: this.x2, y: this.y2 }; }
 }
-//# sourceMappingURL=Line.js.map

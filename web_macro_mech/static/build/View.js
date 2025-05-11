@@ -188,4 +188,3 @@ export class View {
         doc.infoSpan.innerHTML = `T=${glo.chronos} &nbsp;&nbsp; E=${(ek + eg + ed).toFixed()}`;
     }
 }
-//# sourceMappingURL=View.js.map

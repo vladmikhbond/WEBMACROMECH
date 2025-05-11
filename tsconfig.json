@@ -5,7 +5,7 @@
     "module": "es2020",   
     "rootDir": "ts",  
     "outDir": "./web_macro_mech/static/build",          
-    "sourceMap": true, 
+    "sourceMap": false, 
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,  
     "strict": true,     

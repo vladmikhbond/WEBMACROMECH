@@ -12,4 +12,3 @@ export class Link {
     get y2() { return this.b2.y; }
     get len() { return G.distance(this.b1, this.b2); }
 }
-//# sourceMappingURL=Link.js.map
