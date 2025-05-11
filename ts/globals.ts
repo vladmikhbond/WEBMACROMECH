@@ -1,7 +1,7 @@
 export let glo = 
 {
-    W: 0.5,      // conservation of energу when two balls strikes ( 1 - no loss)
-    U: 0.05,     // conservation of energу when link reacts ( 1 - no loss)
+    W: 0.5,      // loss of energу when two balls strikes ( 0 - no loss)
+    U: 0.05,     // loss of energу when link reacts ( 0 - no loss)
     Vis: 0,      // drag coeff   ( 0 - no drag)
     K: 100,      // modulus of elasticity of a ball     
     g: 0.005,    // acceleration of gravity  
