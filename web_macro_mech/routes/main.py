@@ -4,7 +4,7 @@ from flask_login import login_required, current_user
 
 # from sqlalchemy import select
 # from sqlalchemy.orm import Session
-# from urllib.parse import unquote
+from urllib.parse import unquote
 
 
 from ..models import Problem, User
@@ -76,12 +76,14 @@ def switch(id):
 
 #  Запит на форму додавання задачі
 #
-@main_bp.route('/add_prob', methods=['GET', 'POST'])
+@main_bp.route('/add_prob/<scene>', methods=['GET'])
+@main_bp.route('/add_prob/<scene>', defaults={'scene': None}, methods=['POST'])
 @login_required
-def add_prob():
+def add_prob(scene):
     if request.method == 'GET':
-        return render_template('add_prob.html')
-         
+        scene = unquote(scene) if scene else None
+        return render_template('add_prob.html', init=scene) 
+       
     elif request.method == 'POST':
         problem = Problem()
         problem.title = request.form.get('title')
@@ -95,6 +97,7 @@ def add_prob():
             db.add(problem)
             db.commit()
         return redirect(url_for('main.admin'))        
+
 
 #  Запит на форму редагування задачі
 #

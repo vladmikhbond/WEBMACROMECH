@@ -39,6 +39,12 @@ export class ControllerStore {
         // Перехід на сторінку управління задачами - /admin
         //
         doc.adminButton.addEventListener("click", (e) => {
+            if (e.altKey) {
+                const scene = ControllerStore.sceneToJson(this.box);
+                const encodedParam = encodeURIComponent(scene);
+                window.location.href = '/add_prob/' + encodedParam;
+                return;
+            }
             if (e.ctrlKey) {
                 window.open('/admin'); // Open in the same window
             }
