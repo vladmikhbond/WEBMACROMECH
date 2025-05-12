@@ -5,8 +5,8 @@
 {% block content %}
     <h2>Редагування Задачі "{{problem.title}}"</h2>
     <form method="POST">
-        <input type="text" name="cond" title="Умова" value="{{problem.cond}}"  required>
-        <input type="text" name="init" title="Сцена" value="{{problem.init}}" required>
+        <textarea rows="5" name="cond" title="Умова" required>{{problem.cond}}</textarea>
+        <textarea rows="10" name="init" title="Сцена" required>{{problem.init}}</textarea>
         <input type="text" name="answer" title="Відповідь"value="{{problem.answer}}"  required>
         <input type="text" name="isOpen" title="Відкритість"value="{{problem.isOpen}}"  required>
         
