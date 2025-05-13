@@ -81,7 +81,6 @@ export class Ball {
             // втрата енергії при дотику 
             let scalarProduct = G.scalar(new Point(ball.vx, ball.vy), u);
             let kw = scalarProduct > 0 ? 1 - w : 1; // у фазі зменшення деформації
-            // let kw = scalarProduct < 0 ? 1/(1 - w) : 1;   // у фазі збільшення деформації         
             // сила від точки дотику
             let f = glo.K * kw * deform;
             fx += f * u.x;
