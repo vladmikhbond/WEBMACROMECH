@@ -3,17 +3,18 @@
     --canvas-height: 600px;
     --deep-blue-color: #4335a7;
     --gray-blue-color: rgb(203, 215, 236);
+    --canvas-color:rgb(255, 246, 233);
 } 
 
 body {
     background-color: var(--gray-blue-color);
 }
 
-
 .head {
     color:var(--deep-blue-color);
     width: var(--canvas-width);
 }
+
 #adminButton {
     float: right;
     color: var(--deep-blue-color);
@@ -110,7 +111,7 @@ input[type=range]+label
     position: relative;
     width: var(--canvas-width);
     height: var(--canvas-height);
-    background-color:#fff6e9;
+    background-color:var(--canvas-color);
 }
 .canvas-item {
     position: absolute;
@@ -169,15 +170,21 @@ input[type=range]+label
     width: 70px;
     text-align: right;
     margin-bottom: 3px;
+    
+    border-radius: 4px;
     background-color: rgb(117 190 218 / 0%); 
-    border-color: rgb(117 190 218 / 60%);
+    border-color: #4235a748;
 }
 
 .board-button {
     width: 70px;
-    background-color: rgb(0 0 0 / 10%);
-    border-color: rgb(117 190 218 / 60%); 
-    color: gray;
+    border: none;
+    background-color: #fed1ac;
+    border-radius: 4px;
+    color: var(--deep-blue-color);
+}
+.board-button:hover {
+    background-color: #f8b177;
 }
 
 .board-label {
@@ -185,9 +192,8 @@ input[type=range]+label
     display:inline-block;
     text-align: right;
     margin-right: 4px;
-    color: gray
+    color: var(--deep-blue-color);
 }
-
 /* <!------------------ bottom panel ----------------> */
 .bottom-panel {
    margin-top: 4px;

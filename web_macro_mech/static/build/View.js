@@ -14,9 +14,16 @@ export var TraceMode;
 ;
 export class View {
     constructor(box) {
-        this.prettyMode = PrettyMode.Beauty;
+        this._prettyMode = PrettyMode.Beauty;
         this.traceMode = TraceMode.No;
         this.box = box;
+    }
+    set prettyMode(mode) {
+        this._prettyMode = mode;
+        doc.canvas.style.backgroundColor = mode == PrettyMode.Beauty ? '#fff6e9' : 'white';
+    }
+    get prettyMode() {
+        return this._prettyMode;
     }
     clearTrace() {
         const ctx2 = doc.canvas2.getContext("2d");

@@ -35,7 +35,7 @@ export class Controller
     }
 
     resetUI() {
-        this.view.drawAll();
+       
         doc.graviRange.value = glo.g.toString();
         doc.waistRange.value = glo.W.toString();
         doc.waistLinkRange.value = glo.U.toString();
@@ -47,9 +47,12 @@ export class Controller
         doc.waistLinkRange.dispatchEvent(new Event("change"));
         doc.waistFrictRange.dispatchEvent(new Event("change"));
         doc.rigidRange.dispatchEvent(new Event("change"));
-        
+        // modes
         this.mode = Mode.Stop;
         this.view.clearTrace();
+        this.view.prettyMode = PrettyMode.Beauty;
+
+        this.view.drawAll();
     }
 
     step() { 

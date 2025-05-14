@@ -10,12 +10,21 @@ export class View
 {
 
     private box: Box;
+    private _prettyMode = PrettyMode.Beauty;
 
-    public prettyMode = PrettyMode.Beauty;
     public traceMode = TraceMode.No;
 
     constructor(box: Box) {
         this.box = box;
+    }
+
+    set prettyMode(mode: PrettyMode) {
+        this._prettyMode = mode;
+        doc.canvas.style.backgroundColor = mode == PrettyMode.Beauty ? '#fff6e9' : 'white';      
+    }
+    
+    get prettyMode() {
+        return this._prettyMode;
     }
 
     clearTrace() {
