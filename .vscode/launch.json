@@ -8,7 +8,7 @@
             "name": "Python Debugger: Current File",
             "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
+            "program": "C:\\Git\\PY\\WEBMACROMECH\\run.py",
             "console": "integratedTerminal"
         }
     ]

@@ -1,6 +1,7 @@
 .venv/
-
 *.pyc
 __pycache__/
 
-
+web_macro_mech/__pycache__
+build
+dist
