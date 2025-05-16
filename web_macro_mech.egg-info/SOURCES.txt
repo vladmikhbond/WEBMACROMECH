@@ -10,7 +10,6 @@ web_macro_mech/routes/__init__.py
 web_macro_mech/routes/auth.py
 web_macro_mech/routes/main.py
 web_macro_mech/static/help.html
-web_macro_mech/static/index-new.css
 web_macro_mech/static/index.css
 web_macro_mech/static/assets/icons/circle-fill.svg
 web_macro_mech/static/assets/icons/circle.svg

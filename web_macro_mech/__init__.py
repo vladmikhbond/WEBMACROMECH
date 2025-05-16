@@ -10,8 +10,9 @@ from .models import Base, User
 
 bcrypt = Bcrypt()
 
-
+# БД має знаходитися в кореневому каталозі пакета
 db_path = os.path.join(os.path.dirname(__file__), "webmacromech.db")
+
 engine = create_engine(f"sqlite:///{db_path}", echo=False)
 # engine = create_engine("sqlite:///webmacromech.db", echo=False)
 
