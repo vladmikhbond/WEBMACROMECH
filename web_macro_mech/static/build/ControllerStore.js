@@ -166,9 +166,9 @@ export class ControllerStore {
             ControllerStore.restoreSceneFromJson(sceneJson, this.controller.box);
             this.controller.view.drawAll();
         }
-        doc.problemBoard.style.backgroundColor = testOk ?
-            'rgba(29, 252, 0, 0.256)' :
-            'rgba(241, 241, 10, 0.1)';
+        // doc.problemBoard.style.backgroundColor = testOk ?
+        //     'rgba(29, 252, 0, 0.256)' : 
+        //     'rgba(241, 241, 10, 0.1)';
         doc.canvas.style.backgroundColor = testOk ?
             'rgba(29, 252, 0, 0.256)' :
             '#fff6e9';
