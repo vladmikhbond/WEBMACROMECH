@@ -20,4 +20,4 @@ dependencies = [
 include = ["web_macro_mech*"]
 
 [tool.setuptools.package-data]
-"web_macro_mech" = ["static/**", "templates/**"]
+"web_macro_mech" = ["static/**", "templates/**", webmacromech.db]

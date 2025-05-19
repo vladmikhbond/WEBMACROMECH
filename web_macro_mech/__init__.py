@@ -12,9 +12,8 @@ bcrypt = Bcrypt()
 
 # БД має знаходитися в кореневому каталозі пакета
 db_path = os.path.join(os.path.dirname(__file__), "webmacromech.db")
-
+print("DB path: " + db_path)
 engine = create_engine(f"sqlite:///{db_path}", echo=False)
-# engine = create_engine("sqlite:///webmacromech.db", echo=False)
 
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
