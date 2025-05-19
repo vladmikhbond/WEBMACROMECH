@@ -1,6 +1,7 @@
 pyproject.toml
 web_macro_mech/__init__.py
 web_macro_mech/models.py
+web_macro_mech/webmacromech.db
 web_macro_mech.egg-info/PKG-INFO
 web_macro_mech.egg-info/SOURCES.txt
 web_macro_mech.egg-info/dependency_links.txt
