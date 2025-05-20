@@ -15,16 +15,18 @@
     <div class="container">
         <h1 class="mt-4">Задачі користувача <i>{{current_user.username}}</i></h1>
         <div>
-            <a href="{{ url_for('main.add_prob') }}" class="btn btn-primary">Add New Problem</a>
+            <a href="{{ url_for('main.add_prob') }}" class="btn btn-primary">Додати Задачу</a>
+            <a href="{{ url_for('main.index') }}" class="btn btn-primary">На Головну</a>
         </div>
+
         <table class="table table-striped mt-3">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Cond</th>
-                    <th>Open</th>  
-                    <th>Edit</th>  
-                    <th>Del</th>                    
+                    <th>Назва</th>
+                    <th>Умова</th>
+                    <th>Відкр</th>  
+                    <th>Редаг</th>  
+                    <th>Видал</th>                    
                 </tr>
             </thead>
             <tbody>
@@ -32,8 +34,8 @@
                 <tr>
                     <td>{{ problem.title }}</td>
                     <td>{{ problem.cond }}</td>
-                    {% set color = 'green' if problem.isOpen else 'black'  %}
-                    {% set yesNo = 'Yes' if problem.isOpen else 'No'  %}
+                    {% set color = 'green' if problem.isOpen else 'red'  %}
+                    {% set yesNo = 'Так' if problem.isOpen else 'Ні'  %}
                     
 
                     <td>
@@ -41,13 +43,12 @@
                            style="color: {{ color }}">{{yesNo}}</a>
                     </td>
 
-                    <td><a href="{{ url_for('main.edit_prob', id=problem.id ) }}">edit</a></td>
-                    <td><a href="{{ url_for('main.del_prob', id=problem.id ) }}">del</a></td>
+                    <td><a href="{{ url_for('main.edit_prob', id=problem.id ) }}">ред</a></td>
+                    <td><a href="{{ url_for('main.del_prob', id=problem.id ) }}">вид</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a href="{{ url_for('main.index') }}" class="btn btn-primary mt-3">Back to Home</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
