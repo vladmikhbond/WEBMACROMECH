@@ -50,13 +50,24 @@ input[type=range]+label
     width: 40px;
     margin-left: 8px;
     font-weight: 700;
+    color:var(--deep-blue-color);
     background-color: lightblue;
 }
+.panel-button:hover {
+    background-color:  rgb(200, 240, 255);
+}
 
+
+#createModeButton, #traceModeButton {
+    color: blue;   
+    border: blue solid 2px;
+    font-weight: 600; 
+    margin-left:    8px;
+    height: 36px; 
+}
 #createModeButton {
     width: 60px;
 }
-
 #traceModeButton {
     width: 40px;
 }
@@ -65,13 +76,8 @@ input[type=range]+label
     background-image: image('./assets/icons/play-fill.svg');
     background-color: rgb(0, 160, 0)
 }
-
-#createModeButton, #traceModeButton {
-    color: blue;   
-    border: blue solid 2px;
-    font-weight: 600; 
-    margin-left:    8px;
-    height: 36px; 
+#modeButton:hover {
+    background-color:  rgb(0, 220, 20)
 }
 
 
@@ -105,6 +111,22 @@ input[type=range]+label
     color: var(--gray-blue-color)
 }
 
+
+/* Chrome, Safari, Edge */
+.form-range::-webkit-slider-thumb {
+
+  background: rgb(195, 3, 3);
+}
+
+/* Firefox */
+.form-range::-moz-range-thumb {
+  background: rgb(195, 3, 3);
+}
+
+/* IE */
+.form-range::-ms-thumb {
+  background: rgb(195, 3, 3);
+}
 /* ----------------- Canvas Containeer -------------------------- */
 
 .canvas-cont {
