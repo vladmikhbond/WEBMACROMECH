@@ -100,6 +100,8 @@ export class Controller {
     get selected() {
         return this.box.selected;
     }
+    // Play-Stop mode
+    //
     set mode(mode) {
         if (mode === Mode.Play && this.intervalId === 0) {
             this.intervalId = setInterval(() => {
@@ -120,6 +122,8 @@ export class Controller {
     get mode() {
         return this.intervalId ? Mode.Play : Mode.Stop;
     }
+    // Ball-Line-linK mode
+    //
     set createMode(v) {
         // clear selection 
         if (this._createMode != v) {
@@ -220,6 +224,8 @@ export class Controller {
             this.view.drawAll();
         });
     }
+    // Пересування панелей вліво-вправо
+    //
     addSpanClickListeners() {
         const handler = (e) => {
             let parentStyle = e.target.parentElement.style;
@@ -372,12 +378,13 @@ export class Controller {
         let isMousePressed = false;
         doc.canvas.onmousedown = (e) => {
             isMousePressed = true;
+            ball = null;
             p0 = this.cursorPoint(e);
             ballVelo = this.box.ballVeloUnderPoint(p0);
             if (ballVelo) {
                 return;
             }
-            ///// Перемикання //////
+            ///// Перемикання режиму createMode //////
             let obj = this.box.objectUnderPoint(p0);
             this.selected = obj;
             if (obj instanceof Ball) {
@@ -398,10 +405,10 @@ export class Controller {
         doc.canvas.onmousemove = (e) => {
             let p = this.cursorPoint(e);
             this.mousePos = p;
+            // change mouse cursor on velo
+            doc.canvas.style.cursor = this.box.ballVeloUnderPoint(p) ? "pointer" : "auto";
             if (!isMousePressed)
                 return;
-            // change mouse cursor on velo
-            // doc.canvas.style.cursor = this.box.ballVeloUnderPoint(p) ? "pointer" : "auto";
             if (ballVelo) {
                 ballVelo.vx = (p.x - ballVelo.x) / glo.Kvelo;
                 ballVelo.vy = (p.y - ballVelo.y) / glo.Kvelo;
@@ -438,7 +445,7 @@ export class Controller {
         doc.canvas.onmousedown = (e) => {
             p0 = this.cursorPoint(e);
             let line = null;
-            ///// Перемикання //////
+            ///// Перемикання режиму createMode //////
             let obj = this.box.objectUnderPoint(p0);
             this.selected = obj;
             if (obj instanceof Ball) {
@@ -480,7 +487,7 @@ export class Controller {
             let ball = this.box.ballUnderPoint(p);
             if (ball === null || ball === lastClickedBall) {
                 let link = null;
-                ///// Перемикання //////
+                ///// Перемикання режиму createMode //////
                 let obj = this.box.objectUnderPoint(p);
                 this.selected = obj;
                 if (obj instanceof Ball) {

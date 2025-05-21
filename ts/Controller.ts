@@ -121,6 +121,8 @@ export class Controller
         return this.box.selected;
     }
 
+    // Play-Stop mode
+    //
     set mode(mode: Mode) {
         if (mode === Mode.Play && this.intervalId === 0) {
             this.intervalId = setInterval(() => {
@@ -141,7 +143,8 @@ export class Controller
         return this.intervalId ? Mode.Play : Mode.Stop;
     }
 
-
+    // Ball-Line-linK mode
+    //
     set createMode(v: CreateMode) 
     {
         // clear selection 
@@ -261,6 +264,8 @@ export class Controller
 
     }
 
+    // Пересування панелей вліво-вправо
+    //
     addSpanClickListeners() {
         const handler = (e: Event) => {
             let parentStyle = (e.target as HTMLSpanElement).parentElement!.style;
@@ -413,14 +418,14 @@ export class Controller
 
         doc.canvas.onmousedown = (e) => {
             isMousePressed = true;
-
+            ball = null;   
             p0 = this.cursorPoint(e);
             ballVelo = this.box.ballVeloUnderPoint(p0);
             if (ballVelo) {
                 return;
             }
 
-            ///// Перемикання //////
+            ///// Перемикання режиму createMode //////
             let obj = this.box.objectUnderPoint(p0);
             this.selected = obj;
 
@@ -432,7 +437,6 @@ export class Controller
                 this.createMode = CreateMode.Link;
             }
             ////////////////////////
-
             if (ball) {
                 // в p0 смещение курсора от центра шара
                 p0 = { x: ball.x - p0.x, y: ball.y - p0.y };
@@ -444,10 +448,11 @@ export class Controller
             let p = this.cursorPoint(e);
             this.mousePos = p;
 
-            if (!isMousePressed) return;
-
             // change mouse cursor on velo
-            // doc.canvas.style.cursor = this.box.ballVeloUnderPoint(p) ? "pointer" : "auto";
+            doc.canvas.style.cursor = this.box.ballVeloUnderPoint(p) ? "pointer" : "auto";
+
+            if (!isMousePressed)
+                return;
 
             if (ballVelo) {
                 ballVelo.vx = (p.x - ballVelo.x) / glo.Kvelo;
@@ -490,7 +495,7 @@ export class Controller
             p0 = this.cursorPoint(e);
             let line: Line | null = null;
             
-            ///// Перемикання //////
+            ///// Перемикання режиму createMode //////
             let obj = this.box.objectUnderPoint(p0);
             this.selected = obj;
 
@@ -543,7 +548,7 @@ export class Controller
 
                 let link: Link|null = null;
 
-                ///// Перемикання //////
+                ///// Перемикання режиму createMode //////
                 let obj = this.box.objectUnderPoint(p);
                 this.selected = obj;
 

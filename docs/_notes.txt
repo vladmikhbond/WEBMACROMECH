@@ -15,28 +15,13 @@ TODO:
 change mouse cursor if velo 
 допомога
 
-
-
-========================================================================
-Інструкція по ініціалізації проекта
 ---
-Встановити вірт середовище і в ньому пакети:
+--збирання пакету
+> python -m build --wheel  
+--запуск waitress
+> waitress-serve --host 127.0.0.1 --call web_macro_mech:create_app    
 
-  pip install SQLAlchemy 
-  pip install flask flask_sqlalchemy flask_bcrypt    -- аутентіф
-  pip install flask-login                            -- логін
-========================================================================
-
-
-------------------
-Трансфер з macromechanics до webmacromech
 ---
-1. Папку static перенести до папки /web_macro_mech
-
-2. index.html скопіювати в /web_macro_mech/templates/index.html
-
-
- 
 
 БД програми
 ---
