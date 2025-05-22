@@ -36,7 +36,7 @@ export class Box {
         for (let b of this.balls) {
             eKin += b.kinEnergy;
             ePot += b.gravEnergy;
-            eDef += b.deformEnergy;
+            // eDef += b.deformEnergy;
         }
         return [eKin, ePot, eDef];
     }

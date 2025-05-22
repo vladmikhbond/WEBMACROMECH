@@ -25,6 +25,7 @@ export class Controller {
         this.resetUI(); // last command of the constructor
     }
     resetUI() {
+        glo.chronos = 0;
         doc.graviRange.value = glo.g.toString();
         doc.waistRange.value = glo.W.toString();
         doc.waistLinkRange.value = glo.U.toString();
