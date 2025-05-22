@@ -63,6 +63,7 @@ export class Controller
         
         if (glo.chronos % 100 === 0) {
             this.view.showTimeAndEnergy();
+            this.box.killFugitives();
         }
     }
 

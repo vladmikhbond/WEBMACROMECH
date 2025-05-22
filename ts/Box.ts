@@ -10,6 +10,7 @@ export enum CreateMode {Ball, Line, Link};
 type Element = Ball | Line | Link | null;
 
 export class Box {
+
     x: number;
     y: number;
     height: number;
@@ -166,11 +167,14 @@ export class Box {
 
 //#region Mechanics
 
-    // step() {        
-    //     this.collectDots();
-    //     this.balls.forEach( b => b.move() )
-    //     glo.chronos++;
-    // }
+    killFugitives() {
+        for (let ball of this.balls) {
+            if (ball.x < 0 || ball.y > this.width || ball.y < 0 || ball.y > this.height) {
+                this.deleteBall(ball);
+                break;
+            }
+        }
+    }
 
     collectDots() {
         this.balls.forEach(b => b.clearDots());

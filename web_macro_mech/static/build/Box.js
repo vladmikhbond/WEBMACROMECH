@@ -36,7 +36,7 @@ export class Box {
         for (let b of this.balls) {
             eKin += b.kinEnergy;
             ePot += b.gravEnergy;
-            // eDef += b.deformEnergy;
+            eDef += b.deformEnergy;
         }
         return [eKin, ePot, eDef];
     }
@@ -139,11 +139,14 @@ export class Box {
     }
     //#endregion
     //#region Mechanics
-    // step() {        
-    //     this.collectDots();
-    //     this.balls.forEach( b => b.move() )
-    //     glo.chronos++;
-    // }
+    killFugitives() {
+        for (let ball of this.balls) {
+            if (ball.x < 0 || ball.y > this.width || ball.y < 0 || ball.y > this.height) {
+                this.deleteBall(ball);
+                break;
+            }
+        }
+    }
     collectDots() {
         this.balls.forEach(b => b.clearDots());
         this.dotsFromLines();

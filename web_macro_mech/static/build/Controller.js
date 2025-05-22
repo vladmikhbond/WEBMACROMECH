@@ -49,6 +49,7 @@ export class Controller {
         this.view.drawAll();
         if (glo.chronos % 100 === 0) {
             this.view.showTimeAndEnergy();
+            this.box.killFugitives();
         }
     }
     clearScene() {
