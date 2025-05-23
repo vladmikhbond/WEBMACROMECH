@@ -1,55 +1,328 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-  <link rel="icon" href="./favicon.png" type="image/x-icon">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+   p.MsoNoSpacing {
+	 width: 700px;
+   }
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Заголовок 1 Знак";
+	margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:20.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-top:8.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+h3
+	{mso-style-link:"Заголовок 3 Знак";
+	margin-top:8.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	text-indent:.5in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+span.1
+	{mso-style-name:"Заголовок 1 Знак";
+	mso-style-link:"Заголовок 1";
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;}
+span.2
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;}
+span.3
+	{mso-style-name:"Заголовок 3 Знак";
+	mso-style-link:"Заголовок 3";
+	font-family:"Times New Roman",serif;
+	color:#2F5496;}
+.MsoChpDefault
+	{font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:42.5pt 42.5pt 42.5pt 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="index.css" />
 </head>
 
-<body>
-  <div class="container" style="width: 500px;">
-    <h3>Help on Macromechanics</h3>
-    <img src="./assets/img/help.png" width="500" height="500"/>
+<body lang=EN-US style='word-wrap:break-word'>
 
-    <h6>1 - кнопка перемикання режиму створення об'єктів</h6>
-      Три режими: Ball, Line і Link. Перший режим дозволяє створювати кулі, другий - лінії, третій - зв'язки між кулями.
-    <h6>2 - кнопка запуску і зупинки дискретного часу</h6>
-      Час вимірюється в кроках. При зупинці часу можна змінювати параметри об'єктів.
-    <h6> 3 - кнопка відновлення попереднього стану</h6>
-      Попереднім вважається стан, який був до натискання кнопки запуску часу.
-    <h6> 4 - кнопка перемикання режиму відображення</h6>
-      Два режими: нормалний і схематичний. У схематичному режимі відображуються швидкості, точки стикання і траєкторії.
-    <h6> 5 - кнопка очистки робочого простору</h6>
-      Видаляються всі об'єкти.
-    <h6> 6 - кнопка допомоги</h6>
-      Відкривається ця сторінка.
-    <h6> 7 - слайдер сили тяжіння</h6>
-      Сила тяжіння діє лише на кулі.
-    <h6> 8 - слайдер втрат від деформації куль</h6>
-      Втрати енергії від пружньої деформації куль відбуваються при зіткненні. 1 означає відсутність втрат.
-    <h6> 9 - слайдер втрат від деформаціїзв'язків</h6>
-      Втрати енергії від пружньої деформації зв'язків. 1 означає відсутність втрат.
-    <h6> 10 - слайдер модуля пружності</h6>
-      Модуль пружності визначає ступінь пружності куль і зв'язків.
-    <h6> 11 - панель параметрів кулі або лінії</h6>
-      Параметри кулі: координати, швидкість, маса, радіус, колір. Параметри лінії: координати кінців відрізка.
-    <h6> 12 - кнопка збереження сцени</h6>
-      Зберігається стан сцени, включаючи глобальні параметри (дивю пункти 7-10)
-    <h6> 13 - поле редагування збереженої сцени</h6>
-      Відображається JSON-представлення збереженої сцени.
-    <h6> 14 - кнопка завантаження сцени</h6>
-      Завантажується сцена з поля 13.
+<div class=WordSection1>
 
-    
-  </div>
+<h1><span lang=UK>WebMacroMech</span></h1>
+
+<h2><span lang=UK>Допомога по вирішенню задач</span></h2>
+
+<p class=MsoNoSpacing><span lang=UK>Треба обрати задачу</span><span lang=UK> </span><span
+lang=UK>зі списку (8), прочитати умову на панелі (7), вирішити задачу і знайти
+відповідь, ввести відповідь в поле вводу під умовою або встановити параметри
+сцени згідно до знайденої відповіді і натиснути кнопку</span><span lang=UK> </span><i>Check</i><span
+lang=UK> на панелі умови. Якщо відповідь вірна, фон сцени забарвиться зеленим. Якщо
+відповідь невірна, треба шукати інше рішення.</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>            Коли в
+умові задачі даних недостатньо, їх можна отримати з параметрів сцени. Щоб
+побачити параметри елемента сцени, треба обрати його, клацнувши мишею.
+Параметри обраного елемента з’являться на панелі параметрів</span> (<span
+lang=UK>9</span>)<span lang=UK>, де їх можна не тільки бачити, а і змінювати.
+Зміни вступають в дію після натискання кнопки </span><i>Apply</i> <span
+lang=UK>на панелі параметр</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><img width=665 height=641
+id="Рисунок 3" src="help.files/image001.png"></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing style='text-indent:0in'>1 – <span lang=UK>кнопка
+перемикання режиму створення: </span>B – <span lang=UK>кулі, </span>L<span
+lang=UK> – лінії перешкод</span>, K – <span lang=UK>перемички</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'>2 – <span lang=UK>вмикання-вимикання
+відображення траєкторій куль</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>3 – кнопка
+програвання або паузи</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>4 – кнопка повного
+або схематичного відображення</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>5 – кнопка відкату
+часу до моменту останньої зупинки</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>6 – кнопка довідки</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>7 – панель умови
+задачі</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>8 – список задач,
+відкритих до вирішування</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>9 – панель параметрів
+обраного об’єкта</span></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>10 – посилання на
+сторінку управління задачами</span></p>
+
+<h2><span lang=UK>Допомога по створенню задач</span></h2>
+
+<p class=MsoNormal><span lang=UK>Створювати задачі може лише зареєстрований
+користувач.</span></p>
+
+<h3><span lang=UK>Задачі</span></h3>
+
+<p class=MsoNoSpacing><span lang=UK>Задача складається з 4-х частин</span>:<span
+lang=UK> назви, умови</span>, <span lang=UK>сцени і шаблону відповіді. </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Назва задачі має бути унікальною в межах
+застосунку. </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Умова містить мету задачі і чисельні дані
+для її вирішення. Якщо даних в умові недостатньо, необхідну інформацію треба закласти
+в параметри сцени. Для того, щоб глобальні параметри були доступні при вирішенні
+задачі, умову задачі треба починати із зірочки «</span>*<span lang=UK>».</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Сцена є </span>json-<span lang=UK>описом 
+об’єкта </span>Box<span lang=UK>, який включає колекцію куль, колекцію перешкод,
+колекцію перемичок, а також всі глобальні параметри. </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Шаблон відповіді є або дійсним числом, або
+логічним виразом. </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Задачі зберігаються в базі даних. Кожен
+зареєстрований користувач може створювати і зберігати в базі власні задачі. Щоб
+отримати доступ до такої можливості, треба натиснуті кнопку (10).</span></p>
+
+<h3><span lang=UK>Перевірка відповіді</span></h3>
+
+<p class=MsoNoSpacing><span lang=UK>Вирішення задачі полягає в тому, що користувач
+обчислює і встановлює початкові параметри сцени або знаходить якесь числове
+значення.</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Якщо відповіддю є число, воно порівнюється в
+межах похибки 1% з шаблоном відповіді, який в цьому випадку також є числом. </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Якщо відповіддю є налаштування параметрів
+сцени, шаблон відповіді є логічним виразом. </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Для перевірки відповіді користувача налаштована
+їм сцена запускається і програється без відображення на протязі 1000 тактів
+дискретного часу. На кожному такті обчислюється значення логічного виразу із
+шаблону</span>,<span lang=UK> і коли на якомусь такті він стає правдивим,
+перевірка припиняється і задача вважається вирішеною вірно. Якщо на протязі всього
+часу програвання вираз зостається неправдивим, задача вважається не вирішеною.</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Вираз може містити змінну </span>t – <span
+lang=UK>такт дискретного часу, змінні </span>m, x, y, vx, vy, <span lang=UK>-
+параметри першої кулі, </span>m<span lang=UK>1</span>, x<span lang=UK>1</span>
+y<span lang=UK>1</span>, vx<span lang=UK>1</span>, vy<span lang=UK>1</span>, <span
+lang=UK>- параметри другої кулі в колекції куль. Вираз пишеться мовою </span>JS.</p>
+
+<p class=MsoNoSpacing><span lang=UK>Наприклад, в задачі влучання кулею в баскетбольну
+корзину відповіддю є вираз </span></p>
+
+<p class=MsoNoSpacing align=center style='text-align:center;text-indent:0in'><i><span
+lang=UK>t &gt; 350 &amp;&amp; 570 &lt; x &amp;&amp; x &lt; 640 &amp;&amp; y
+&lt; 80</span></i></p>
+
+<p class=MsoNoSpacing style='text-indent:0in'><span lang=UK>Тобто, якщо в
+деякий момент часу після 350-го </span>x-<span lang=UK>координата першої кулі опиниться
+в межах від 570 до 640, а </span>y<span lang=UK>-координата буде менша за 80,
+то користувач правильно встановив параметри сцени і успішно вирішив задачу.</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Відповідь у вигляді логічного виразу
+охоплює цілу низку можливих рішень, кожне з яких є комплексом значень
+параметрів.</span></p>
+
+<h3><span lang=UK>Сцена</span></h3>
+
+<p class=MsoNoSpacing><span lang=UK>Сцена складається з трьох типів об’єктів –
+куль, перешкод та перемички. Робота з кожним типом об’єктів відбувається у
+відповідному режимі редактора сцен, режими перемикаються кнопкою (1). </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Кулі і перешкоди додаються за допомогою
+миші. Перемички між двома кулями створюються двома послідовним кліками по
+кулям, які з’єднуються перемичкою. </span></p>
+
+<p class=MsoNoSpacing><span lang=UK>В кожному з режимів редактору один з
+об’єктів може бути обраним. Параметри обраного об’єкту відображуються на панелі
+параметрів і можуть бути змінені користувачем. Щоб зміни вступили в силу,
+користувач має натиснути кнопку «</span>Apply<span lang=UK>»</span><span
+lang=UK> </span><span lang=UK>на панелі параметрів. Положення і швидкість кулі
+можна також змінювати за допомогою миші.</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Щоб видалити будь-який об’єкт зі сцени,
+треба обрати його і натиснути клавішу </span>Del.</p>
+
+<h3><span lang=UK>Програвання сцен</span></h3>
+
+<p class=MsoNoSpacing><span lang=UK>Коли сцена створена, можна запустити
+модельний час кнопкою (3) і спостерігати сцену в динаміці. В будь-який момент
+модельний час можна зупинити, щоб дослідити поточні параметри об’єктів. Можна
+програвати сцену по крокам із зупинкою після кожного такту модельного часу
+(клавіша з літерою «</span>S<span lang=UK>»</span>)<span lang=UK>.</span></p>
+
+<h3><span lang=UK>Параметри моделі</span></h3>
+
+<p class=MsoNormal><span lang=UK>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=UK><img width=665 height=641 id="Рисунок 1"
+src="help.files/image002.png"></span></p>
+
+<p class=MsoNoSpacing><span lang=UK>11 – прискорення сили тяжіння</span><span
+lang=UK> </span>g<span lang=UK>.</span></p>
+
+<p class=MsoNoSpacing>12 – <span lang=UK>коефіцієнт втрати енергії при стиканні
+куль</span> W. <span lang=UK>W </span>= <span lang=UK>0 означає, що втрат
+енергії немає, W</span> = 0.5<span lang=UK> означає, що при лобовому стиканні
+кулі з перешкодою її кінетична енергія зменшиться вдвічі. Якщо стикання не
+лобове, зменшення стосується лише тангенціальної складової швидкості.         
+Якщо дві кулі стикаються між собою, енергію втрачають обидві кулі.</span></p>
+
+<p class=MsoNoSpacing>13 – <span lang=UK>коефіцієнт втрати  енергії при
+деформації перемичок</span> U<span lang=UK>. Деформація полягає в розтягуванні
+або стисканні перемички. Зауважимо, що кількість актів деформації перемички
+набагато більша, ніж стикань куль, тому значення </span>U <span lang=UK>варто
+обирати ближче до нуля, ніж значення </span>W<span lang=UK>.</span></p>
+
+<p class=MsoNoSpacing>14 – <span lang=UK>в’язкість повітря</span> V<span
+lang=UK>. З-за опору повітря куля також може  втрачати енергію. При повільному
+руху куль сила спротиву пропорційна радіусу і швидкості кулі. </span><span
+lang=UK> </span>V = 0 <span lang=UK>означає, що спротиву повітря немає.</span></p>
+
+<p class=MsoNoSpacing>15 – <span lang=UK>модуль пружності матеріалу куль</span>
+K<span lang=UK>.</span><span lang=UK> </span><span lang=UK>Від нього залежить
+розмір деформації при стиканні, яка підкоряється формулі</span><span lang=UK> </span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+position:relative;top:3.0pt'><img width=89 height=23
+src="help.files/image003.png"></span><i><span lang=UK> </span></i><i><span
+lang=UK>.</span></i><span lang=UK> Зменшення </span><span lang=UK>модуля
+пружності призводить до збільшення деформацій і це підвищує точність
+розрахунків. Втім</span>,<span lang=UK> занадто великі деформації призводять до
+руйнації моделі. </span></p>
+
+<p class=MsoNoSpacing>16 – <span lang=UK>покажчик дискретного часу</span> T<span
+lang=UK>.</span></p>
+
+<p class=MsoNoSpacing>17 – <span lang=UK>загальна енергія сцени</span> E<span
+lang=UK>.</span></p>
+
+<p class=MsoNoSpacing>18 – <span lang=UK>кнопка збереження поточної сцени.</span></p>
+
+<p class=MsoNoSpacing>1<span lang=UK>9</span> – <span lang=UK>збережена сцена в
+форматі </span>JSON<span lang=UK>.</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>20</span> – <span lang=UK>кнопка відтворення
+збереженої сцени.</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>&nbsp;</span></p>
+
+<h3><span lang=UK>Управління задачами</span></h3>
+
+<p class=MsoNoSpacing><span lang=UK>Кнопка (10) відкриває сторінку розробника
+задач. На ній він може додавати, редагувати і видаляти будь-яку зі своїх задач.
+</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>Також можна відкривати і приховувати
+задачі, лише відкриті задачі будуть доступні для вирішення.</span></p>
+
+<p class=MsoNoSpacing><span lang=UK>&nbsp;</span></p>
+
+</div>
+
 </body>
 
 </html>
