@@ -58,7 +58,7 @@ input[type=range]+label
 }
 
 
-#createModeButton, #traceModeButton {
+#createModeButton {
     color: blue;   
     border: blue solid 2px;
     font-weight: 600; 
@@ -67,9 +67,6 @@ input[type=range]+label
 }
 #createModeButton {
     width: 60px;
-}
-#traceModeButton {
-    width: 40px;
 }
 
 #modeButton {

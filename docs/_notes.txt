@@ -12,7 +12,7 @@ https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Inline_math_mode
 
 TODO:
 вихід користувача
-кнопку N-T переробити
+
 
 ---
 --збирання пакету
@@ -21,7 +21,7 @@ TODO:
 > waitress-serve --host 127.0.0.1 --call web_macro_mech:create_app    
 
 
--- на продуктовій машині
+-- встановлення на продуктовій машині
 cd c:\nginx
 start nginx
 
