@@ -34,7 +34,7 @@ def create_app():
     app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp)
 
-    login_manager.login_view = 'register.login'  # якщо не авторизований — редірект
+    login_manager.login_view = 'auth.login'  # якщо не авторизований — редірект
 
     return app
 

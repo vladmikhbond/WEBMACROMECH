@@ -11,7 +11,7 @@ from ..models import Problem, User
     
 from .. import SessionLocal, bcrypt
 
-auth_bp = Blueprint('register', __name__)
+auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
@@ -59,4 +59,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('register.login'))
+    return redirect(url_for('main.index'))

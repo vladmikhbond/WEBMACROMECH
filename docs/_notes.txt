@@ -11,10 +11,8 @@ https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Inline_math_mode
 
 
 TODO:
-вихід користувача
 
 
----
 --збирання пакету
 > python -m build --wheel  
 --запуск waitress
