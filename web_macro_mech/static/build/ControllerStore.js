@@ -53,7 +53,10 @@ export class ControllerStore {
             }
         });
         doc.saveSceneButton.addEventListener("click", () => {
-            doc.savedSceneArea.value = ControllerStore.sceneToJson(this.box);
+            let jsonStr = ControllerStore.sceneToJson(this.box);
+            const count = (jsonStr.match(/\n/g) || []).length;
+            doc.savedSceneArea.value = jsonStr;
+            doc.savedSceneArea.rows = Math.min(count, 10);
         });
         doc.loadSceneButton.addEventListener("click", () => {
             ControllerStore.restoreSceneFromJson(doc.savedSceneArea.value, this.box);

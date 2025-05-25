@@ -21,8 +21,10 @@ body {
     border-color: var(--deep-blue-color);
     margin-right: 4px;
 }
-/* ---------------------- top panel ---------------------- */
-.panel {
+
+/* ---------------------- top panel (buttons row) ---------------------- */
+
+.topPanel {
     border: solid gray 1px; 
     padding: 5px;  
     width: var(--canvas-width);
@@ -30,19 +32,6 @@ body {
     background-color:var(--deep-blue-color);
     color: white;
     position: relative;
-}
-
-input[type=range]
-{
-    width: 80px;
-    height: 14px;
-    display: inline;
-    margin: 4px 0px 0px 4px;
-}
-
-input[type=range]+label
-{
-    width: 64px;
 }
 
 .panel-button {
@@ -55,8 +44,8 @@ input[type=range]+label
 }
 .panel-button:hover {
     background-color:  rgb(200, 240, 255);
+    color: var(--deep-blue-color);
 }
-
 
 #createModeButton {
     color: blue;   
@@ -64,8 +53,6 @@ input[type=range]+label
     font-weight: 600; 
     margin-left:    8px;
     height: 36px; 
-}
-#createModeButton {
     width: 60px;
 }
 
@@ -76,7 +63,6 @@ input[type=range]+label
 #modeButton:hover {
     background-color:  rgb(0, 220, 20)
 }
-
 
 #sceneSelect {
     margin-top: 12px;
@@ -92,7 +78,6 @@ input[type=range]+label
     font-size: 17px;
     box-shadow: 0 2px #fff6e956;
 }
-
 #sceneSelect:hover {
     background-color: #fed1ac;
     color: var(--deep-blue-color);
@@ -112,10 +97,22 @@ input[type=range]+label
     font-size: 12px;
 }
 
+/* ---------------------- top panel (sliders row) ---------------------- */
+input[type=range]
+{
+    width: 80px;
+    height: 14px;
+    display: inline;
+    margin: 4px 0px 0px 4px;
+}
+
+input[type=range]+label
+{
+    width: 64px;
+}
 
 /* Chrome, Safari, Edge */
 .form-range::-webkit-slider-thumb {
-
   background: rgb(195, 3, 3);
 }
 
@@ -128,6 +125,7 @@ input[type=range]+label
 .form-range::-ms-thumb {
   background: rgb(195, 3, 3);
 }
+
 /* ----------------- Canvas Containeer -------------------------- */
 
 .canvas-cont {
@@ -136,6 +134,7 @@ input[type=range]+label
     height: var(--canvas-height);
     background-color:var(--canvas-color);
 }
+
 .canvas-item {
     position: absolute;
     top: 0;
@@ -180,7 +179,6 @@ input[type=range]+label
 }
 
 
-
 #canvas {
     z-index: 2;
 }
@@ -217,24 +215,18 @@ input[type=range]+label
     margin-right: 4px;
     color: var(--deep-blue-color);
 }
-/* <!------------------ bottom panel ----------------> */
+/* ------------------ bottom panel ---------------- */
 .bottom-panel {
    margin-top: 4px;
    width: var(--canvas-width);
 } 
-#savedSceneText
+#savedSceneArea
 {
     width: 720px;
-    height: 30px;
     background-color: var(--deep-blue-color);
     color: white;
 }
 
-scene-textarea {
-    width: 720px;
-    height: 100px;
-    margin-top: 4px;
-}
 .scene-btn {
     vertical-align: top;
 }

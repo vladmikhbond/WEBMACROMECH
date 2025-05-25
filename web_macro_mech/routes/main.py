@@ -2,13 +2,10 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 
-# from sqlalchemy import select
-# from sqlalchemy.orm import Session
 from urllib.parse import unquote
 
-
-from ..models import Problem, User
-from .. import SessionLocal, bcrypt
+from ..models import Problem
+from .. import SessionLocal
 
 main_bp = Blueprint("main", __name__)
 
@@ -17,7 +14,10 @@ main_bp = Blueprint("main", __name__)
 @main_bp.route('/', methods=['GET'])
 # @login_required
 def index():
-    return render_template('index.html')
+    nameInHeader = ''
+    if current_user.is_authenticated:
+        nameInHeader = ' - ' + current_user.username
+    return render_template('index.html', nameInHeader = nameInHeader)
 
 
 #  API - список задач

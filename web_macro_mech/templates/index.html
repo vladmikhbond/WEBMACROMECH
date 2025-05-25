@@ -18,7 +18,7 @@
   <div class="container">
     
     <h3 id="header" class="head">      
-      Macromechanics - {{current_user.username}}
+      Macromechanics {{nameInHeader}}
       <button id="adminButton" class="btn btn-outline-info" title="Alt - додавання задачи"> 
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
@@ -27,8 +27,9 @@
       </button>
     </h3>
 
-    <!---------------------- top panel ---------------------->
-    <div class="panel">
+    <!---------------------- top panel (buttons row) ---------------------->
+
+    <div class="topPanel">
       <button id="createModeButton" btn-primary class="btn btn-light" title="Balls | Lines | Links">
         Ball
       </button>
@@ -61,12 +62,13 @@
       <img src="static/assets/icons/info.svg" width="20" height="20">
       </button>
       
-      <select class="form-select-sm" id="sceneSelect" title="Select problem">
-      </select>
+      <select class="form-select-sm" id="sceneSelect" title="Select problem"></select>
 
       <span id="infoSpan"></span>
 
       <span id="mousePosSpan"></span>
+
+      <!---------------------- top panel (sliders row) ---------------------->
 
       <div id="rangesDiv" style="margin: 10px 0px 0px 0px ;">
         <input type="range" id="graviRange" class="form-range" step="0.001" min="0" max="0.01" 
@@ -85,18 +87,17 @@
           title="В'язкість повітря (0-немає в'язкості)" />
         <label id="waistFrictValue" class="form-label" for="waistFrictRange"></label>
 
-
-      <input type="range" id="rigidRange" class="form-range" step="1" min="0" max="10" value="7"
-          title="Модуль пружності" />
-        <label id="rigidValue" class="form-label" for="rigidRange"></label>
+        <input type="range" id="rigidRange" class="form-range" step="1" min="0" max="10" value="7"
+            title="Модуль пружності" />
+          <label id="rigidValue" class="form-label" for="rigidRange"></label>
       </div>
+
     </div>
 
-    <!-- Canvas Containeer -->
+    <!----------------------------- Canvas Containeer --------------------------------->
     
     <div class="canvas-cont">
 
-      <!-- Problem Board -->
       <div id="problemBoard" class="canvas-item" style="right: unset; left: 0">
         <span style="position: absolute; right: 0; color: blue"><></span>
         <div id="condDiv" style="color: rgb(0 0 0 / 75%);"></div>
@@ -104,7 +105,6 @@
         <button id="answerButton" class="board-button">Check</button>
       </div>
 
-      <!-- Ball Board -->
       <div id="ballBoard" class="canvas-item" style="right: 0; left: unset">
         <span style="position: absolute; color: blue"><></span>
         <div>
@@ -130,7 +130,6 @@
         </div>
       </div>
 
-      <!-- Line Board -->
       <div id="lineBoard" class="canvas-item" style="right: 0; left: unset">
         <span style="position: absolute; color: blue"><></span>
         <div>
@@ -145,14 +144,15 @@
           <button id="applyLineButton" class="board-button" style="float: right;">Apply</button>
         </div>
       </div>
-        
-        <canvas id="canvas2" width="800" height="600" class="canvas-item"></canvas>
-        <canvas id="canvas" width="800" height="600" class="canvas-item"></canvas>
+      
+      <canvas id="canvas2" width="800" height="600" class="canvas-item"></canvas>
+      <canvas id="canvas" width="800" height="600" class="canvas-item"></canvas>
    
     </div>
 
     <!------------------ bottom panel ---------------->
     <div class="bottom-panel">
+
       <button id="saveSceneButton" class="btn btn-sm btn-primary scene-btn" title="Export scene">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down-right" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M8.636 12.5a.5.5 0 0 1-.5.5H1.5A1.5 1.5 0 0 1 0 11.5v-10A1.5 1.5 0 0 1 1.5 0h10A1.5 1.5 0 0 1 13 1.5v6.636a.5.5 0 0 1-1 0V1.5a.5.5 0 0 0-.5-.5h-10a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h6.636a.5.5 0 0 1 .5.5"/>
@@ -160,9 +160,7 @@
         </svg>
       </button>
 
-      <textarea id="savedSceneText" rows="1" class="scene-textarea">
-           
-      </textarea>
+      <textarea id="savedSceneArea" rows="1"></textarea>
 
       <button id="loadSceneButton" class="zzz btn btn-sm btn-primary scene-btn" title="Import scene">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-up-right" viewBox="0 0 16 16">
@@ -170,6 +168,7 @@
           <path fill-rule="evenodd" d="M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0z"/>
         </svg>
       </button>
+
     </div>
 
     <img src="static/assets/img/redBall.png" id="redBallImg" width="523" height="520" style="display: none;" />

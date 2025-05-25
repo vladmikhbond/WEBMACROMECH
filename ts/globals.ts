@@ -58,7 +58,7 @@ export const doc =
     goldBallImg: <HTMLImageElement>document.getElementById("goldBallImg"),
     saveSceneButton: <HTMLButtonElement>document.getElementById("saveSceneButton"),
     loadSceneButton: <HTMLButtonElement>document.getElementById("loadSceneButton"),
-    savedSceneArea: <HTMLTextAreaElement>document.getElementById("savedSceneText"),  
+    savedSceneArea: <HTMLTextAreaElement>document.getElementById("savedSceneArea"),  
     adminButton: <HTMLButtonElement>document.getElementById("adminButton"),
     adminSpan: <HTMLSpanElement>document.getElementById("adminSpan"),
     addProblemButton: <HTMLButtonElement>document.getElementById("addProblemButton"),

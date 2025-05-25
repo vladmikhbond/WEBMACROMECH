@@ -36,6 +36,11 @@ web_macro_mech/static/build/Problem.js
 web_macro_mech/static/build/View.js
 web_macro_mech/static/build/globals.js
 web_macro_mech/static/build/main.js
+web_macro_mech/static/help.files/image001.png
+web_macro_mech/static/help.files/image002.png
+web_macro_mech/static/help.files/image003.png
+web_macro_mech/static/help.files/image004.png
+web_macro_mech/static/help.files/image005.png
 web_macro_mech/templates/add_prob.html
 web_macro_mech/templates/admin.html
 web_macro_mech/templates/del_prob.html
