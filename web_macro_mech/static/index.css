@@ -141,6 +141,13 @@ input[type=range]+label
     right: 0;
 }
 
+#canvas {
+    z-index: 2;
+}
+#canvas2 {
+    z-index: 1;
+}
+
 /* -----------------  Board Styles -------------------------- */
 
 #ballBoard, #lineBoard, #problemBoard {
@@ -178,13 +185,6 @@ input[type=range]+label
     border-color: #4235a748;    
 }
 
-
-#canvas {
-    z-index: 2;
-}
-#canvas2 {
-    z-index: 1;
-}
 
 
 .board-text {
