@@ -173,8 +173,7 @@ input[type=range]+label
 
 #problemBoard {
     width: 500px;
-    left: 0;
-    
+    left: 0; 
 }
 
 #answerText {   
