@@ -1,0 +1,252 @@
+﻿:root {
+    --canvas-width: 800px;
+    --canvas-height: 600px;
+    --deep-blue-color: #4335a7;
+    --gray-blue-color: rgb(203, 215, 236);
+    --canvas-color:rgb(255, 246, 233);
+} 
+
+body {
+    padding-top: 20px;
+    background-color: var(--gray-blue-color);
+}
+
+.head {
+    color:var(--deep-blue-color);
+    width: var(--canvas-width);
+}
+
+#adminButton {
+    float: right;
+    color: var(--canvas-color);
+    border-color: var(--deep-blue-color);
+    background-color:var(--deep-blue-color);
+    border-radius: 8px 8px 2px 2px;
+}
+
+#adminButton:hover {
+    border-color: var(--deep-blue-color);
+    background-color:#5e50c2;
+    border-color: #5e50c2;
+    color: #ffffff;
+}
+
+/* ---------------------- top panel ---------------------- */
+.topPanel {
+    border: none;
+    border-radius: 8px 2px 1px 1px;
+    padding: 5px;  
+    width: var(--canvas-width);
+    margin-bottom: 4px;
+    background-color:var(--deep-blue-color);
+    color: white;
+    position: relative;
+}
+
+.panel-button {
+    width: 40px;
+    margin-left: 8px;
+    font-weight: 700;
+    color:var(--deep-blue-color);
+    background-color: #80c4e9;
+    color: #4335a7;
+}
+.panel-button:hover {
+    background-color: #9adcff;
+    color: #4335a7;
+}
+
+
+#createModeButton {
+    color: #ffffff;
+    background-color: #4335a7;
+    border: #80c4e9 solid 2px;
+    font-weight: 600; 
+    margin-left:    8px;
+    height: 36px; 
+	width: 60px;
+}
+
+#modeButton {
+    background-image: image('./assets/icons/play-fill.svg');
+    background-color: rgb(119 232 172)
+}
+#modeButton:hover {
+    background-color:  rgb(78 202 159)
+}
+
+
+#sceneSelect {
+    margin-top: 12px;
+    margin-left: 8px;
+    display: inline-block; 
+    max-width: 280px;
+    border: none;
+    border-radius: 4px;
+    transition-duration: 0.15s;
+    background-color: #fff6e9;
+    color: var(--deep-blue-color);
+    
+    font-size: 17px;
+    box-shadow: 0 2px #fff6e956;
+}
+
+#sceneSelect:hover {
+    background-color: #fed1ac;
+    color: var(--deep-blue-color);
+}
+
+
+#mousePosSpan, #infoSpan  {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 14px;
+    color: #80c4e9;
+}
+
+#mousePosSpan  {
+    color: var(--gray-blue-color);
+    top: 36px;
+    font-size: 12px;
+}
+
+
+/* ---------------------- top panel (sliders row) ---------------------- */
+input[type=range]
+{
+    width: 80px;
+    height: 14px;
+    display: inline;
+    margin: 4px 0px 0px 4px;
+}
+
+input[type=range]+label
+{
+    width: 64px;
+}
+
+/* Chrome, Safari, Edge */
+.form-range::-webkit-slider-thumb {
+
+  background: rgb(195, 3, 3);
+}
+
+/* Firefox */
+.form-range::-moz-range-thumb {
+  background: rgb(195, 3, 3);
+}
+
+/* IE */
+.form-range::-ms-thumb {
+  background: rgb(195, 3, 3);
+}
+/* ----------------- Canvas Containeer -------------------------- */
+
+.canvas-cont {
+    position: relative;
+    width: var(--canvas-width);
+    height: var(--canvas-height);
+    background-color:var(--canvas-color);
+}
+.canvas-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#canvas {
+    z-index: 2;
+}
+#canvas2 {
+    z-index: 1;
+}
+
+/* -----------------  Board Styles -------------------------- */
+
+#ballBoard, #lineBoard, #problemBoard {
+    border: none;
+    
+    border-radius: 1px 1px 4px 4px;
+    border-color: rgb(117 190 218 / 70%);
+    font-family: monospace;
+    font-weight: 800;
+    color: #ff7f3e;
+    padding: 5px;
+    background-color: #e4e4e5;
+    display: none; 
+    z-index: 3;
+    left: auto;  
+    right: 0;     
+}
+
+
+#problemBoard {
+    width: 500px;
+    left: 0;
+    
+}
+
+#answerText {   
+    color: #4335a7;
+    width: 100px; 
+    border-radius: 4px;
+    background-color: #fff6e92a; 
+    border-color: #4235a748;    
+}
+
+
+
+.board-text {
+    width: 70px;
+    text-align: right;
+    margin-bottom: 3px;
+    
+    border-radius: 4px;
+    background-color: rgb(117 190 218 / 0%); 
+    border-color: #4235a748;
+}
+
+.board-button {
+    width: 70px;
+    border: none;
+    background-color: #fed1ac;
+    border-radius: 4px;
+    color: var(--deep-blue-color);
+}
+.board-button:hover {
+    background-color: #f8b177;
+}
+
+.board-label {
+    width: 55px;
+    display:inline-block;
+    text-align: right;
+    margin-right: 4px;
+    color: var(--deep-blue-color);
+}
+/* <!------------------ bottom panel ----------------> */
+.bottom-panel {
+   margin-top: 4px;
+   width: var(--canvas-width);
+} 
+#savedSceneArea
+{
+    width: 720px;
+    height: 30px;
+    background-color: var(--deep-blue-color);
+    color: white;
+}
+
+scene-textarea {
+    width: 720px;
+    height: 100px;
+    margin-top: 4px;
+}
+.scene-btn {
+    vertical-align: top;
+    border: none;
+    padding: 6px 9px;
+    background-color: #80c4e9;
+    color: #4335a7;
+}

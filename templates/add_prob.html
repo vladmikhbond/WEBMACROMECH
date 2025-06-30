@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %} AddProb {% endblock %}
+
+{% block content %}
+    <h2>Додавання Задачі</h2>
+    <form method="POST" >
+        <input type="text" name="title" placeholder="Назва" value="{{title}}" required>
+        <textarea rows="5" name="cond" title="Умова" required>{{cond}}</textarea>
+        <textarea rows="10" name="init" title="Сцена" required>{{init}}</textarea>
+        <input type="text" name="answer" placeholder="Відповідь"value="{{answer}}" required>
+        
+        <button type="submit">Додати</button>
+    </form>
+{% endblock %}
